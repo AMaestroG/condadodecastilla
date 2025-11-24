@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Condado de Castilla</title>
+    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/estilos_condado.css">
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.75), rgba(var(--color-negro-contraste-rgb), 0.88)), url('/assets/img/hero_contacto_background.jpg');">
+        <div class="hero-content">
+            <img src="/assets/img/estrella.png" alt="Estrella de Venus decorativa" class="decorative-star-header">
+            <h1>Ponte en Contacto</h1>
+            <p>¿Preguntas, sugerencias o deseas colaborar? Estamos aquí para escucharte.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="section contact-section"> <div class="container page-content-block"> <div class="contact-info">
+                    <p>Puedes enviarnos un mensaje directamente usando el formulario a continuación o escribirnos a nuestra dirección de correo electrónico:</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@condadodecastilla.com" class="email-link">info@condadodecastilla.com</a></p>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2 class="section-title">Formulario de Contacto</h2>
+                    <form id="contactForm" action="mailto:info@condadodecastilla.com" method="POST" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="nombre"><i class="fas fa-user"></i> Nombre Completo:</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre y apellidos">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-at"></i> Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" required placeholder="tu.correo@ejemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto"><i class="fas fa-pen-nib"></i> Asunto:</label>
+                            <input type="text" id="asunto" name="asunto" required placeholder="Motivo de tu contacto">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje"><i class="fas fa-comment-dots"></i> Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje" rows="7" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button submit-button">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© <script>document.write(new Date().getFullYear());</script> CondadoDeCastilla.com - Todos los derechos reservados.</p>
+            <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/groups/1052427398664069" aria-label="Facebook" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" title="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter" title="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/layout.js"></script>
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                let name = document.getElementById('nombre').value.trim();
+                let email = document.getElementById('email').value.trim();
+                let subject = document.getElementById('asunto').value.trim();
+                let message = document.getElementById('mensaje').value.trim();
+
+                if (!name || !email || !subject || !message) {
+                    alert('Por favor, completa todos los campos requeridos.');
+                    event.preventDefault(); 
+                    return;
+                }
+                
+                let mailtoLink = `mailto:ablmaestro@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
+                this.action = mailtoLink;
+            });
+        }
+    </script>
+</body>
+</html>
