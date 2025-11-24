@@ -24,6 +24,9 @@ function initializeNavigation() {
     if (toggle && menu) {
         toggle.addEventListener('click', () => {
             menu.classList.toggle('active');
+            const overlay = document.getElementById('menu-overlay');
+            if (overlay) overlay.classList.toggle('active');
+
             const icon = toggle.querySelector('i');
             if (menu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
@@ -33,5 +36,17 @@ function initializeNavigation() {
                 icon.classList.add('fa-bars');
             }
         });
+
+        // Close menu when clicking overlay
+        const overlay = document.getElementById('menu-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                const icon = toggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        }
     }
 }
