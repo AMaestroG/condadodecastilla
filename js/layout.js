@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
-            // NEW: Initialize sidebar navigation after header is loaded
+            // Initialize sidebar navigation after header is loaded
             initializeSidebarNavigation();
         });
 
@@ -14,31 +14,52 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 });
 
-// NEW: Function to handle sidebar interactions
+// Function to handle sidebar interactions
 function initializeSidebarNavigation() {
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
     const body = document.body;
 
-    if (sidebarToggle && sidebar && body) { // Added body check
-        sidebarToggle.addEventListener('click', () => {
+    if (sidebarToggle && sidebar && body) {
+        sidebarToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             sidebar.classList.toggle('sidebar-visible');
-            body.classList.toggle('sidebar-active'); // For main content shift
-            // Optional: Change toggle button text/icon and ARIA attribute
+            body.classList.toggle('sidebar-active');
+
+            // Toggle Icon
             if (sidebar.classList.contains('sidebar-visible')) {
                 sidebarToggle.setAttribute('aria-expanded', 'true');
-                // sidebarToggle.textContent = '✕'; // Example: Change to X
+                sidebarToggle.innerHTML = '<i class="fas fa-times"></i>';
             } else {
                 sidebarToggle.setAttribute('aria-expanded', 'false');
-                // sidebarToggle.textContent = '☰'; // Example: Change back to burger
+                sidebarToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('sidebar-visible') &&
+                !sidebar.contains(e.target) &&
+                !sidebarToggle.contains(e.target)) {
+
+                sidebar.classList.remove('sidebar-visible');
+                body.classList.remove('sidebar-active');
+                sidebarToggle.setAttribute('aria-expanded', 'false');
+                sidebarToggle.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
     } else {
         console.error("Sidebar toggle, sidebar element, or body not found.");
     }
 
-    // NEW: Initialize Carousels
+    // Initialize Carousels
     initializeCarousels();
+
+    // Initialize Scroll to Top button
+    initializeScrollButton();
+
+    // Initialize Google Translate
+    initializeGoogleTranslate();
 }
 
 function initializeCarousels() {
@@ -102,33 +123,44 @@ function initializeCarousels() {
     });
 }
 
-/*
-// OLD function to be removed or commented out:
-function initializeMobileNavigation() {
-    // Script para el menú de navegación móvil
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
+// Scroll to Top Button functionality
+function initializeScrollButton() {
+    const scrollBtn = document.getElementById('scrollToTopBtn');
 
-    // Check if elements exist before adding event listeners
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-            navToggle.setAttribute('aria-expanded', !isExpanded);
-            navLinks.classList.toggle('active');
-        });
+    if (!scrollBtn) return;
 
-        // Opcional: Cerrar menú al hacer clic en un enlace
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Check if navLinks is active before trying to remove class and set attribute
-                if (navLinks.classList.contains('active')) {
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navLinks.classList.remove('active');
-                }
-            });
+    // Show button when user scrolls down 300px
+    window.addEventListener('scroll', () => {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.style.display = 'flex';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    });
+
+    // Scroll to top when clicked
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-    } else {
-        console.error("Mobile navigation elements not found. Header might not be loaded correctly.");
-    }
+    });
 }
-*/
+
+// Google Translate initialization
+function initializeGoogleTranslate() {
+    // Add Google Translate script
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.head.appendChild(script);
+}
+
+// Google Translate callback
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,fr,de,it,pt,ca,eu,gl',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
