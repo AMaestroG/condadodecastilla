@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@
             --color-acento-amarillo: #FFD700;  /* Amarillo brillante de la estrella */
             --color-piedra-clara: #EAE0C8;   /* Beige muy claro para texto sobre fondos oscuros o detalles */
             --color-piedra-media: #D2B48C;   /* Arenisca para fondos secundarios o elementos */
-            --color-texto-principal: #2c1d12;  /* Un marrón oscuro para el texto principal */
+            --color-texto-principal: #2c1d12;  /* Un marrÃ³n oscuro para el texto principal */
             --color-fondo-pagina: #fdfaf6;   /* Un blanco hueso muy sutil para el fondo general */
             --color-negro-contraste: #1A1A1A;
             --color-primario-purpura-rgb: 74, 13, 103; 
@@ -88,12 +88,12 @@
             padding: 20px;
         }
 
-        /* --- Barra de Navegación (simplificada para páginas de personajes) --- */
+        /* --- Barra de NavegaciÃ³n (simplificada para pÃ¡ginas de personajes) --- */
         .navbar {
             background-color: var(--color-primario-purpura);
             padding: 0.8em 0; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-            /* position: sticky;  Puede no ser necesario en páginas de detalle */
+            /* position: sticky;  Puede no ser necesario en pÃ¡ginas de detalle */
             /* top: 0; */
             z-index: 1000;
         }
@@ -118,9 +118,9 @@
             outline: none; 
         }
         /* Se omite .nav-links y .nav-toggle para la plantilla de personaje para simplificar, 
-           se puede añadir si se desea un menú completo en cada página de personaje */
+           se puede aÃ±adir si se desea un menÃº completo en cada pÃ¡gina de personaje */
 
-        /* Estilos específicos para la página del personaje y el índice */
+        /* Estilos especÃ­ficos para la pÃ¡gina del personaje y el Ã­ndice */
         .page-header-personaje, .page-header-indice {
             background-color: var(--color-piedra-media);
             background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.65), rgba(44, 29, 18, 0.8)), url("/assets/img/hero_background_mezquita_llana.jpg"); /* Placeholder, considera cambiarla */
@@ -135,14 +135,14 @@
             color: #fff;
             text-shadow: 2px 2px 6px var(--color-negro-contraste);
         }
-        .content-section { /* Clase genérica para secciones de contenido */
+        .content-section { /* Clase genÃ©rica para secciones de contenido */
             padding: clamp(30px, 6vh, 50px) 0;
         }
         .content-wrapper { /* Contenedor para el contenido principal */
             max-width: 800px;
             margin: 0 auto;
             background-color: #fff;
-            padding: 30px 40px; /* Más padding lateral */
+            padding: 30px 40px; /* MÃ¡s padding lateral */
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
@@ -152,7 +152,7 @@
             border: 4px solid var(--color-piedra-media);
             border-radius: 50%; /* Imagen redonda para retratos */
             object-fit: cover;
-            height: 300px; /* Asegurar que sea cuadrada para el círculo */
+            height: 300px; /* Asegurar que sea cuadrada para el cÃ­rculo */
         }
         .content-wrapper h2 {
             text-align:left;
@@ -175,7 +175,7 @@
         .content-wrapper ul li {
             margin-bottom: 0.5em;
         }
-        .back-to-link, .cta-button-personaje { /* Estilo común para botones/enlaces de acción */
+        .back-to-link, .cta-button-personaje { /* Estilo comÃºn para botones/enlaces de acciÃ³n */
             display: inline-block;
             margin-top: 2em;
             padding: 12px 25px;
@@ -196,19 +196,19 @@
             transform: translateY(-2px);
         }
         
-        /* Estilos para el índice de personajes */
+        /* Estilos para el Ã­ndice de personajes */
         .indice-categorias li {
-            list-style-type: none; /* Quitar viñetas de la lista principal de categorías */
+            list-style-type: none; /* Quitar viÃ±etas de la lista principal de categorÃ­as */
             margin-bottom: 1.5em;
         }
-        .indice-categorias h3 { /* Título de categoría en el índice */
+        .indice-categorias h3 { /* TÃ­tulo de categorÃ­a en el Ã­ndice */
             font-size: clamp(1.3em, 2.8vw, 1.7em);
             border-left: none;
             padding-left: 0;
             margin-bottom: 0.5em;
         }
-        .indice-personajes-lista { /* Lista de personajes dentro de una categoría */
-            list-style: disc; /* Viñetas para los personajes */
+        .indice-personajes-lista { /* Lista de personajes dentro de una categorÃ­a */
+            list-style: disc; /* ViÃ±etas para los personajes */
             padding-left: 30px;
         }
         .indice-personajes-lista li a {
@@ -263,10 +263,10 @@
             <div class="container">
                 <div class="content-wrapper">
                     <img src="/assets/img/placeholder.jpg" alt="[Retrato o imagen de Obispo Sancho]" class="personaje-imagen-principal" onerror="this.style.display='none'">
-                    <h2>Biografía y Relevancia</h2>
+                    <h2>BiografÃ­a y Relevancia</h2>
                     <p>
-                        Información detallada sobre Obispo Sancho, su vida, sus hazañas y su importancia en la historia del Condado de Castilla y Cerezo de Río Tirón. 
-                        Este es un texto de ejemplo, por favor reemplázalo con el contenido real.
+                        InformaciÃ³n detallada sobre Obispo Sancho, su vida, sus hazaÃ±as y su importancia en la historia del Condado de Castilla y Cerezo de RÃ­o TirÃ³n. 
+                        Este es un texto de ejemplo, por favor reemplÃ¡zalo con el contenido real.
                     </p>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -282,7 +282,7 @@
                     </ul>
                     
                     <p style="text-align:center;">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Índice de Personajes</a>
+                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Ãndice de Personajes</a>
                     </p>
                 </div>
             </div>
@@ -292,9 +292,11 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 CondadoDeCastilla.com - Todos los derechos reservados.</p>
-            <p>Un proyecto para la difusión del patrimonio histórico de Cerezo de Río Tirón y el Alfoz de Cerasio y Lantarón.</p>
+            <p>Un proyecto para la difusiÃ³n del patrimonio histÃ³rico de Cerezo de RÃ­o TirÃ³n y el Alfoz de Cerasio y LantarÃ³n.</p>
         </div>
     </footer>
-    <script src="/js/layout.js"></script>
+    <script>window.siteRoot = '../../../';</script>
+    <script src="../../../js/layout.js"></script>
 </body>
 </html>
+
