@@ -105,7 +105,8 @@ img {
     /* Imperial Purple with opacity */
     backdrop-filter: blur(10px);
     border-bottom: 2px solid var(--color-old-gold);
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    /* Reduced padding */
     transition: var(--transition-smooth);
 }
 
@@ -128,7 +129,8 @@ img {
 }
 
 .logo img {
-    height: 50px;
+    height: 45px;
+    /* Reduced size */
     border: 2px solid var(--color-old-gold);
     border-radius: 50%;
 }
@@ -210,8 +212,9 @@ img {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
-    min-height: 600px;
+    height: 70vh;
+    /* Reduced height */
+    min-height: 500px;
     background: linear-gradient(rgba(75, 30, 69, 0.4), rgba(44, 24, 16, 0.6)), url('../assets/img/hero_castle.png');
     background-size: cover;
     background-position: center;
@@ -302,6 +305,9 @@ img {
     position: relative;
     z-index: 1;
     width: 100%;
+    max-height: 400px;
+    /* Limit height */
+    object-fit: cover;
     box-shadow: var(--shadow-deep);
     border-radius: 2px;
     filter: sepia(20%) contrast(110%);
