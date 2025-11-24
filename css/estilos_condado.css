@@ -26,10 +26,21 @@
 body {
   font-family: var(--condado-font-principal);
   color: var(--condado-texto);
-  background-color: var(--condado-fondo);
+  background-color: #f0e9e0;
+  background-image: url('../assets/img/bg_alabastro.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+}
+
+/* Estilos Globales de Imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* 4. Estilos de Encabezados Ancestrales */
@@ -98,14 +109,14 @@ a:focus {
 .container-condado {
   width: 90%;
   max-width: 1200px;
-  /* Un ancho máximo para contenido épico */
   margin: 2em auto;
-  /* Centrado y con espacio */
-  padding: 1em 2em;
-  background-color: rgba(255, 255, 255, 0.1);
-  /* Un sutil fondo interior si es necesario */
-  border-radius: 5px;
-  /* Bordes suaves para el contenedor */
+  padding: 2em;
+  background-image: url('../assets/img/bg_pergamino.png');
+  background-size: cover;
+  background-repeat: repeat;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
 /* 8. Clases de Utilidad Épicas */
@@ -172,16 +183,6 @@ a:focus {
 
 /* 10. Mejoras Estéticas Imperiales */
 
-/* Fondo con textura de Papel Viejo (Simulado) */
-body {
-  background-color: #f4e4bc;
-  /* Color base papel viejo */
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
-    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
-  background-attachment: fixed;
-}
-
 /* Fondo de Alabastro para secciones alternas */
 .alternate-bg,
 .alabaster-bg {
@@ -199,11 +200,14 @@ body {
 .imperial-frame {
   border: 5px solid transparent;
   border-image: linear-gradient(to bottom right, var(--condado-secundario), var(--condado-primario)) 1;
-  box-shadow: 0 0 15px rgba(184, 134, 11, 0.4);
-  padding: 2em;
-  background: rgba(255, 255, 255, 0.8);
-  /* Fondo semitransparente para legibilidad */
+  box-shadow: 0 0 20px rgba(184, 134, 11, 0.5);
+  padding: 2.5em;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  /* Redondeado suave */
   position: relative;
+  backdrop-filter: blur(5px);
+  /* Efecto vidrio esmerilado suave */
 }
 
 .imperial-frame::before,
@@ -238,8 +242,8 @@ body {
   color: var(--condado-acento);
   padding: 1em 2em;
   border: 2px solid var(--condado-secundario);
-  border-radius: 2px;
-  /* Bordes más rectos para seriedad */
+  border-radius: 25px;
+  /* Botones redondeados */
   font-family: var(--condado-font-titulos);
   font-weight: bold;
   text-transform: uppercase;
@@ -276,9 +280,10 @@ body {
 
 /* Tarjetas Mejoradas */
 .card {
-  background-color: #fffcf5;
+  background-color: rgba(255, 252, 245, 0.9);
+  /* Pergamino muy claro y translúcido */
   border: 1px solid #d4c5b0;
-  border-radius: 4px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -296,10 +301,12 @@ body {
 
 .card img {
   width: 100%;
-  height: 250px;
-  /* Altura fija para equilibrio */
+  height: auto;
+  aspect-ratio: 16/9;
+  /* Mantiene proporción consistente */
   object-fit: cover;
   border-bottom: 4px solid var(--condado-secundario);
+  border-radius: 15px 15px 0 0;
   filter: sepia(20%);
   /* Un toque antiguo */
   transition: filter 0.3s;
