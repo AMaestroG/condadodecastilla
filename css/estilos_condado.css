@@ -5,12 +5,18 @@
 
 /* 2. Variables de Color del Condado */
 :root {
-  --condado-primario: #4A0D67; /* Púrpura profundo, como el estandarte real */
-  --condado-secundario: #B8860B; /* Oro oscuro, como tesoros antiguos */
-  --condado-acento: #FFD700; /* Oro brillante, para detalles destacados */
-  --condado-texto: #2c1d12; /* Marrón oscuro, como tinta en pergamino */
-  --condado-fondo: #f0e9e0; /* Beige claro, como piedra antigua o pergamino */
-  --condado-sombra-texto: rgba(0, 0, 0, 0.5); /* Sombra para texto épico */
+  --condado-primario: #4A0D67;
+  /* Púrpura profundo, como el estandarte real */
+  --condado-secundario: #B8860B;
+  /* Oro oscuro, como tesoros antiguos */
+  --condado-acento: #FFD700;
+  /* Oro brillante, para detalles destacados */
+  --condado-texto: #2c1d12;
+  /* Marrón oscuro, como tinta en pergamino */
+  --condado-fondo: #f0e9e0;
+  /* Beige claro, como piedra antigua o pergamino */
+  --condado-sombra-texto: rgba(0, 0, 0, 0.5);
+  /* Sombra para texto épico */
 
   --condado-font-principal: 'Lora', serif;
   --condado-font-titulos: 'Cinzel', serif;
@@ -27,7 +33,12 @@ body {
 }
 
 /* 4. Estilos de Encabezados Ancestrales */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--condado-font-titulos);
   color: var(--condado-primario);
   text-shadow: 1px 1px 2px var(--condado-sombra-texto);
@@ -65,7 +76,8 @@ h6 {
 /* 5. Estilos de Párrafos */
 p {
   margin-bottom: 1.2em;
-  line-height: 1.7; /* Ligeramente mayor para mejorar legibilidad con Lora */
+  line-height: 1.7;
+  /* Ligeramente mayor para mejorar legibilidad con Lora */
 }
 
 /* 6. Estilos de Enlaces del Condado */
@@ -85,11 +97,15 @@ a:focus {
 /* 7. Contenedor Principal del Condado */
 .container-condado {
   width: 90%;
-  max-width: 1200px; /* Un ancho máximo para contenido épico */
-  margin: 2em auto; /* Centrado y con espacio */
+  max-width: 1200px;
+  /* Un ancho máximo para contenido épico */
+  margin: 2em auto;
+  /* Centrado y con espacio */
   padding: 1em 2em;
-  background-color: rgba(255, 255, 255, 0.1); /* Un sutil fondo interior si es necesario */
-  border-radius: 5px; /* Bordes suaves para el contenedor */
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Un sutil fondo interior si es necesario */
+  border-radius: 5px;
+  /* Bordes suaves para el contenedor */
 }
 
 /* 8. Clases de Utilidad Épicas */
@@ -106,16 +122,20 @@ a:focus {
 .text-epic-purpura {
   color: var(--condado-primario);
   font-weight: bold;
-  font-family: var(--condado-font-titulos); /* Usar la fuente de títulos para impacto */
+  font-family: var(--condado-font-titulos);
+  /* Usar la fuente de títulos para impacto */
 }
 
 /* Fondo de Pergamino */
 .background-parchment {
-  background-color: #fdf5e6; /* Un color pergamino más específico */
-  color: var(--condado-texto); /* Asegurar contraste */
+  background-color: #fdf5e6;
+  /* Un color pergamino más específico */
+  color: var(--condado-texto);
+  /* Asegurar contraste */
   padding: 1.5em;
-  border: 1px solid #e0d8c6; /* Un borde sutil para el pergamino */
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #e0d8c6;
+  /* Un borde sutil para el pergamino */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* 9. Estilos Responsivos (Mobile First) */
@@ -152,78 +172,229 @@ a:focus {
 
 /* 10. Mejoras Estéticas Imperiales */
 
-/* Fondo con textura sutil (simulada con CSS) */
+/* Fondo con textura de Papel Viejo (Simulado) */
 body {
-  background-color: var(--condado-fondo);
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+  background-color: #f4e4bc;
+  /* Color base papel viejo */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+  background-attachment: fixed;
 }
 
-/* Botones Épicos */
-.cta-button, .read-more {
+/* Fondo de Alabastro para secciones alternas */
+.alternate-bg,
+.alabaster-bg {
+  background-color: #fdfbf7;
+  background-image: url('../assets/img/alabastro.jpg');
+  /* Asegúrate de que la ruta sea correcta desde el CSS */
+  background-size: cover;
+  background-blend-mode: multiply;
+  border-top: 3px solid var(--condado-secundario);
+  border-bottom: 3px solid var(--condado-secundario);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Marcos Imperiales */
+.imperial-frame {
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, var(--condado-secundario), var(--condado-primario)) 1;
+  box-shadow: 0 0 15px rgba(184, 134, 11, 0.4);
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.8);
+  /* Fondo semitransparente para legibilidad */
+  position: relative;
+}
+
+.imperial-frame::before,
+.imperial-frame::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--condado-primario);
+  transition: all 0.3s ease;
+}
+
+.imperial-frame::before {
+  top: -5px;
+  left: -5px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.imperial-frame::after {
+  bottom: -5px;
+  right: -5px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Botones Épicos Refinados */
+.cta-button,
+.read-more {
   display: inline-block;
-  background-color: var(--condado-primario);
+  background: linear-gradient(135deg, var(--condado-primario), #2e0642);
   color: var(--condado-acento);
-  padding: 0.8em 1.5em;
+  padding: 1em 2em;
   border: 2px solid var(--condado-secundario);
-  border-radius: 4px;
+  border-radius: 2px;
+  /* Bordes más rectos para seriedad */
   font-family: var(--condado-font-titulos);
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  text-decoration: none; /* Asegurar que no tenga subrayado por defecto */
-}
-
-.cta-button:hover, .read-more:hover {
-  background-color: var(--condado-secundario);
-  color: var(--condado-primario);
-  border-color: var(--condado-primario);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+  letter-spacing: 1.5px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Tarjetas con estilo de pergamino */
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover,
+.read-more:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(74, 13, 103, 0.4);
+  border-color: var(--condado-acento);
+  color: #fff;
+}
+
+/* Tarjetas Mejoradas */
 .card {
-  background-color: #fdf5e6;
+  background-color: #fffcf5;
   border: 1px solid #d4c5b0;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Para igualar alturas en grid/flex */
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
   border-color: var(--condado-secundario);
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 250px;
+  /* Altura fija para equilibrio */
   object-fit: cover;
-  border-bottom: 2px solid var(--condado-secundario);
+  border-bottom: 4px solid var(--condado-secundario);
+  filter: sepia(20%);
+  /* Un toque antiguo */
+  transition: filter 0.3s;
+}
+
+.card:hover img {
+  filter: sepia(0%);
 }
 
 .card-content {
-  padding: 1.5em;
+  padding: 2em;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  /* Alineación centrada elegante */
 }
 
 .card-content h3 {
   margin-top: 0;
-  font-size: 1.5em;
+  font-size: 1.6em;
   color: var(--condado-primario);
+  border-bottom: 1px solid rgba(184, 134, 11, 0.3);
+  padding-bottom: 0.5em;
+  margin-bottom: 0.8em;
 }
 
-/* Grid para tarjetas (Desktop) */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.card-content p {
+  font-size: 1.05em;
+  margin-bottom: 1.5em;
+  text-align: justify;
+  /* Justificado tipo libro */
+  text-justify: inter-word;
+}
+
+/* Estilos del Carrusel */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 1em 0;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
   gap: 2em;
-  margin-top: 2em;
 }
 
+.carousel-slide {
+  min-width: 100%;
+  /* Móvil: 1 slide */
+  box-sizing: border-box;
+}
+
+@media (min-width: 769px) {
+  .carousel-slide {
+    min-width: calc(33.333% - 1.33em);
+    /* Desktop: 3 slides */
+  }
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(74, 13, 103, 0.8);
+  color: var(--condado-acento);
+  border: 2px solid var(--condado-secundario);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.carousel-button:hover {
+  background: var(--condado-primario);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+/* Grid fallback si JS falla o para estructura base */
+.card-grid {
+  /* Se mantiene como fallback o contenedor interno */
+}
