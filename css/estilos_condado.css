@@ -349,3 +349,34 @@ img {
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+/* Biography Pages */
+.content-wrapper {
+  text-align: center;
+}
+
+.personaje-imagen-principal {
+  max-width: 300px;
+  margin: 0 auto 1.5em auto;
+  border: 4px solid var(--condado-secundario);
+  border-radius: 50%;
+  object-fit: cover;
+  height: 300px;
+  display: block;
+}
+
+.bio-text {
+  text-align: justify;
+  margin-bottom: 2em;
+}
+
+.bio-list-wrapper {
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
+.nav-button-wrapper {
+  text-align: center;
+  margin-top: 2em;
+}
