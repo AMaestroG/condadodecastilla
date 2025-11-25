@@ -4,76 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flavio VÃ­ctor - Condado de Castilla</title>
+    <title>Flavio Víctor - Condado de Castilla</title>
     <link rel="icon" href="../../assets/img/escudo.jpg" type="image/jpeg">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link rel="stylesheet" href="../../css/estilos_condado.css">
-    <style>
-        /* Estilos especÃ­ficos para la pÃ¡gina del personaje si son necesarios, 
-           pero heredarÃ¡ de estilos_condado.css */
-        .page-header-personaje {
-            background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.65), rgba(44, 29, 18, 0.8)), url("../../assets/img/hero_background_mezquita_llana.jpg");
-        }
-    </style>
 </head>
 
 <body>
-
     <div id="header-placeholder"></div>
 
-    <header class="page-header-personaje">
-        <div class="container">
-            <h1>Flavio VÃ­ctor</h1>
+    <header class="page-header hero"
+        style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.65), rgba(44, 29, 18, 0.8)), url('../../assets/img/hero_background_mezquita_llana.jpg');">
+        <div class="hero-content">
+            <h1>Flavio Víctor</h1>
+            <p>Augusto, hijo de Magno Clemente Máximo.</p>
         </div>
     </header>
 
     <main>
-        <section class="content-section">
-            <div class="container">
-                <div class="content-wrapper">
-                    <img src="../../assets/img/f_victor3.jpg" alt="[Retrato o imagen de Flavio VÃ­ctor]"
-                        class="personaje-imagen-principal" onerror="this.style.display='none'">
+        <section class="section">
+            <div class="container imperial-frame">
+                <div class="content-wrapper" style="text-align: center;">
+                    <img src="../../assets/img/f_victor3.jpg" alt="[Retrato o imagen de Flavio Víctor]"
+                        class="personaje-imagen-principal"
+                        style="max-width: 300px; margin: 0 auto 1.5em auto; border: 4px solid var(--condado-secundario); border-radius: 50%; object-fit: cover; height: 300px; display: block;"
+                        onerror="this.style.display='none'">
 
-                    <p>
-                        Flavio VÃ­ctor fue hijo del emperador Magno Clemente MÃ¡ximo, quien lo elevÃ³ al rango de Augusto
-                        (co-emperador) siendo aÃºn un niÃ±o. Su breve reinado transcurriÃ³ a la sombra de su padre,
-                        gobernando nominalmente en la Galia.
-                    </p>
-                    <p>
-                        Tras la derrota y muerte de MÃ¡ximo a manos de Teodosio I, VÃ­ctor fue ejecutado, poniendo fin
-                        trÃ¡gico a las aspiraciones imperiales de esta dinastÃ­a de origen hispano. Su historia es un
-                        recordatorio de la inestabilidad y las luchas de poder en el Bajo Imperio.
-                    </p>
+                    <div style="text-align: justify; margin-bottom: 2em;">
+                        <p>
+                            Flavio Víctor fue hijo del emperador Magno Clemente Máximo, quien lo elevó al rango de
+                            Augusto
+                            (co-emperador) siendo aún un niño. Su breve reinado transcurrió a la sombra de su padre,
+                            gobernando nominalmente en la Galia.
+                        </p>
+                        <p>
+                            Tras la derrota y muerte de Máximo a manos de Teodosio I, Víctor fue ejecutado, poniendo fin
+                            trágico a las aspiraciones imperiales de esta dinastía de origen hispano. Su historia es un
+                            recordatorio de la inestabilidad y las luchas de poder en el Bajo Imperio.
+                        </p>
+                    </div>
 
-                    <h3>Hitos Importantes</h3>
-                    <ul>
+                    <h3 class="section-title">Hitos Importantes</h3>
+                    <ul style="text-align: left; display: inline-block; margin-bottom: 2em;">
                         <li>Nombrado Augusto (co-emperador) por su padre.</li>
                         <li>Gobernante nominal de la Galia.</li>
-                        <li>VÃ­ctima de las purgas polÃ­ticas tras la caÃ­da de MÃ¡ximo.</li>
+                        <li>Víctima de las purgas políticas tras la caída de Máximo.</li>
                     </ul>
 
-                    <p style="text-align:center;">
-                        <a href="../indice_personajes.html" class="back-to-link">Volver al Ãndice de Personajes</a>
-                    </p>
+                    <div style="text-align:center; margin-top: 2em;">
+                        <a href="../../personajes/indice_personajes.html" class="cta-button">Volver al Índice de
+                            Personajes</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 CondadoDeCastilla.com - Todos los derechos reservados.</p>
-            <p>Un proyecto para la difusiÃ³n del patrimonio histÃ³rico de Cerezo de RÃ­o TirÃ³n y el Alfoz de Cerasio y
-                LantarÃ³n.</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
     <script>window.siteRoot = '../../';</script>
     <script src="../../js/layout.js"></script>
 </body>

@@ -5,371 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>San Vitores - Condado de Castilla</title>
-    <link rel="icon" href="/assets/img/escudo.jpg" type="image/jpeg">
+    <link rel="icon" href="../../assets/img/escudo.jpg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* --- Variables de Color Basadas en el Escudo --- */
-        :root {
-            --color-primario-purpura: #4A0D67;
-            /* Morado oscuro del fondo del escudo */
-            --color-secundario-dorado: #B8860B;
-            /* Dorado/Ocre del borde y detalles */
-            --color-acento-amarillo: #FFD700;
-            /* Amarillo brillante de la estrella */
-            --color-piedra-clara: #EAE0C8;
-            /* Beige muy claro para texto sobre fondos oscuros o detalles */
-            --color-piedra-media: #D2B48C;
-            /* Arenisca para fondos secundarios o elementos */
-            --color-texto-principal: #2c1d12;
-            /* Un marrÃ³n oscuro para el texto principal */
-            --color-fondo-pagina: #fdfaf6;
-            /* Un blanco hueso muy sutil para el fondo general */
-            --color-negro-contraste: #1A1A1A;
-            --color-primario-purpura-rgb: 74, 13, 103;
-            --transition-speed: 0.3s;
-        }
-
-        /* --- Estilos Generales --- */
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Lora", serif;
-            line-height: 1.7;
-            color: var(--color-texto-principal);
-            background-color: var(--color-fondo-pagina);
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Cinzel", serif;
-            color: var(--color-primario-purpura);
-            margin-top: 1.5em;
-            margin-bottom: 0.7em;
-            line-height: 1.3;
-            font-weight: 700;
-        }
-
-        h1 {
-            font-size: clamp(2.2em, 5vw, 3em);
-            text-align: center;
-        }
-
-        h2 {
-            font-size: clamp(1.8em, 4vw, 2.5em);
-        }
-
-        h3 {
-            font-size: clamp(1.4em, 3vw, 2em);
-        }
-
-        a {
-            color: var(--color-secundario-dorado);
-            text-decoration: none;
-            transition: color var(--transition-speed) ease, outline-color var(--transition-speed) ease;
-        }
-
-        a:focus-visible {
-            color: var(--color-acento-amarillo);
-            text-decoration: underline;
-            outline: 2px solid var(--color-acento-amarillo);
-            outline-offset: 2px;
-        }
-
-        a:hover {
-            color: var(--color-acento-amarillo);
-            text-decoration: underline;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            display: block;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* --- Barra de NavegaciÃ³n (simplificada para pÃ¡ginas de personajes) --- */
-        .navbar {
-            background-color: var(--color-primario-purpura);
-            padding: 0.8em 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-            /* position: sticky;  Puede no ser necesario en pÃ¡ginas de detalle */
-            /* top: 0; */
-            z-index: 1000;
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            /* Centrar si solo hay logo */
-            align-items: center;
-        }
-
-        .navbar .logo-text {
-            font-family: "Cinzel", serif;
-            font-size: clamp(1.5em, 3vw, 1.8em);
-            color: var(--color-piedra-clara);
-            text-decoration: none;
-            font-weight: 900;
-            transition: transform var(--transition-speed) ease;
-        }
-
-        .navbar .logo-text:hover,
-        .navbar .logo-text:focus-visible {
-            transform: scale(1.05);
-            text-decoration: none;
-            outline: none;
-        }
-
-        /* Se omite .nav-links y .nav-toggle para la plantilla de personaje para simplificar, 
-           se puede aÃ±adir si se desea un menÃº completo en cada pÃ¡gina de personaje */
-
-        /* Estilos especÃ­ficos para la pÃ¡gina del personaje y el Ã­ndice */
-        .page-header-personaje,
-        .page-header-indice {
-            background-color: var(--color-piedra-media);
-            background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.65), rgba(44, 29, 18, 0.8)), url("/assets/img/hero_background_mezquita_llana.jpg");
-            /* Placeholder, considera cambiarla */
-            background-size: cover;
-            background-position: center;
-            padding: clamp(40px, 10vh, 80px) 20px;
-            text-align: center;
-            color: var(--color-piedra-clara);
-            border-bottom: 6px solid var(--color-secundario-dorado);
-        }
-
-        .page-header-personaje h1,
-        .page-header-indice h1 {
-            color: #fff;
-            text-shadow: 2px 2px 6px var(--color-negro-contraste);
-        }
-
-        .content-section {
-            /* Clase genÃ©rica para secciones de contenido */
-            padding: clamp(30px, 6vh, 50px) 0;
-        }
-
-        .content-wrapper {
-            /* Contenedor para el contenido principal */
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px 40px;
-            /* MÃ¡s padding lateral */
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-wrapper img.personaje-imagen-principal {
-            max-width: 300px;
-            margin: 0 auto 1.5em auto;
-            border: 4px solid var(--color-piedra-media);
-            border-radius: 50%;
-            /* Imagen redonda para retratos */
-            object-fit: cover;
-            height: 300px;
-            /* Asegurar que sea cuadrada para el cÃ­rculo */
-        }
-
-        .content-wrapper h2 {
-            text-align: left;
-            border-bottom: 2px solid var(--color-secundario-dorado);
-            padding-bottom: 0.3em;
-            margin-bottom: 1em;
-            font-size: clamp(1.6em, 3.5vw, 2.2em);
-        }
-
-        .content-wrapper h2::after {
-            display: none;
-        }
-
-        .content-wrapper p,
-        .content-wrapper ul {
-            text-align: justify;
-            margin-bottom: 1em;
-            font-size: clamp(1em, 2vw, 1.1em);
-        }
-
-        .content-wrapper ul {
-            list-style-position: outside;
-            padding-left: 20px;
-        }
-
-        .content-wrapper ul li {
-            margin-bottom: 0.5em;
-        }
-
-        .back-to-link,
-        .cta-button-personaje {
-            /* Estilo comÃºn para botones/enlaces de acciÃ³n */
-            display: inline-block;
-            margin-top: 2em;
-            padding: 12px 25px;
-            background-color: var(--color-secundario-dorado);
-            color: var(--color-primario-purpura) !important;
-            /* Forzar color de texto */
-            border-radius: 25px;
-            font-family: "Cinzel", serif;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border: 2px solid var(--color-primario-purpura);
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
-        }
-
-        .back-to-link:hover,
-        .cta-button-personaje:hover {
-            background-color: var(--color-primario-purpura);
-            color: var(--color-acento-amarillo) !important;
-            /* Forzar color de texto */
-            text-decoration: none;
-            transform: translateY(-2px);
-        }
-
-        /* Estilos para el Ã­ndice de personajes */
-        .indice-categorias li {
-            list-style-type: none;
-            /* Quitar viÃ±etas de la lista principal de categorÃ­as */
-            margin-bottom: 1.5em;
-        }
-
-        .indice-categorias h3 {
-            /* TÃ­tulo de categorÃ­a en el Ã­ndice */
-            font-size: clamp(1.3em, 2.8vw, 1.7em);
-            border-left: none;
-            padding-left: 0;
-            margin-bottom: 0.5em;
-        }
-
-        .indice-personajes-lista {
-            /* Lista de personajes dentro de una categorÃ­a */
-            list-style: disc;
-            /* ViÃ±etas para los personajes */
-            padding-left: 30px;
-        }
-
-        .indice-personajes-lista li a {
-            font-size: clamp(1em, 2vw, 1.1em);
-        }
-
-
-        /* --- Footer --- */
-        .footer {
-            background-color: var(--color-texto-principal);
-            color: var(--color-piedra-clara);
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
-            border-top: 6px solid var(--color-secundario-dorado);
-        }
-
-        .footer .container {
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-
-        .footer p {
-            margin: 0.6em 0;
-            font-size: clamp(0.9em, 1.8vw, 1em);
-        }
-
-        .footer a {
-            color: var(--color-acento-amarillo);
-        }
-
-        .footer a:focus-visible {
-            color: #fff;
-            text-decoration: underline;
-            outline: 1px dashed var(--color-acento-amarillo);
-            outline-offset: 1px;
-        }
-
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/estilos_condado.css">
 </head>
 
 <body>
     <div id="header-placeholder"></div>
 
-    <header class="page-header-personaje">
-        <div class="container">
+    <header class="page-header hero"
+        style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.65), rgba(44, 29, 18, 0.8)), url('../../assets/img/hero_background_mezquita_llana.jpg');">
+        <div class="hero-content">
             <h1>San Vitores</h1>
+            <p>Mártir y patrón de Cerezo de Río Tirón.</p>
         </div>
     </header>
 
     <main>
-        <section class="content-section">
-            <div class="container">
-                <div class="content-wrapper">
+        <section class="section">
+            <div class="container imperial-frame">
+                <div class="content-wrapper" style="text-align: center;">
                     <img src="../../assets/img/escudo.jpg" alt="[Escudo del Condado de Castilla]"
-                        class="personaje-imagen-principal" onerror="this.style.display='none'">
-                    <h2>BiografÃ­a y Relevancia</h2>
-                    <p>
-                        InformaciÃ³n detallada sobre San Vitores, su vida, sus hazaÃ±as y su importancia en la historia
-                        del Condado de Castilla y Cerezo de RÃ­o TirÃ³n.
-                        Este es un texto de ejemplo, por favor reemplÃ¡zalo con el contenido real.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur.
-                    </p>
+                        class="personaje-imagen-principal"
+                        style="max-width: 300px; margin: 0 auto 1.5em auto; border: 4px solid var(--condado-secundario); border-radius: 50%; object-fit: cover; height: 300px; display: block;"
+                        onerror="this.style.display='none'">
 
-                    <h3>Hitos Importantes</h3>
-                    <ul>
-                        <li>[Hito importante 1 de San Vitores]</li>
-                        <li>[Hito importante 2 de San Vitores]</li>
-                        <li>[Hito importante 3 de San Vitores]</li>
+                    <div style="text-align: justify; margin-bottom: 2em;">
+                        <p>
+                            San Vitores es una figura central en la historia religiosa y cultural de Cerezo de Río
+                            Tirón.
+                            Sacerdote y mártir, su vida está rodeada de leyendas que narran su resistencia frente a la
+                            invasión musulmana y su milagrosa decapitación, tras la cual se dice que siguió predicando.
+                        </p>
+                        <p>
+                            Su culto se extendió rápidamente por la región, convirtiéndose en el santo patrón de la
+                            villa.
+                            El antiguo convento de San Vitores, hoy en ruinas, fue un importante centro de peregrinación
+                            y devoción durante siglos.
+                        </p>
+                    </div>
+
+                    <h3 class="section-title">Hitos Importantes</h3>
+                    <ul style="text-align: left; display: inline-block; margin-bottom: 2em;">
+                        <li>Sacerdote de Cerezo durante la invasión musulmana.</li>
+                        <li>Martirio y decapitación (según la tradición).</li>
+                        <li>Fundación del Convento de San Vitores en su honor.</li>
+                        <li>Patrón de Cerezo de Río Tirón y de la comarca.</li>
                     </ul>
 
-                    <p style="text-align:center;">
-                        <a href="/personajes/indice_personajes.html" class="back-to-link">Volver al Ãndice de
+                    <div style="text-align:center; margin-top: 2em;">
+                        <a href="../../personajes/indice_personajes.html" class="cta-button">Volver al Índice de
                             Personajes</a>
-                    </p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 CondadoDeCastilla.com - Todos los derechos reservados.</p>
-            <p>Un proyecto para la difusiÃ³n del patrimonio histÃ³rico de Cerezo de RÃ­o TirÃ³n y el Alfoz de Cerasio y
-                LantarÃ³n.</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
     <script>window.siteRoot = '../../';</script>
     <script src="../../js/layout.js"></script>
 </body>
