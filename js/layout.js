@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize other components that don't depend on header/footer loading
     initializeCarousels();
     initializeScrollButton();
+    initializeScrollReveal();
+    initializeCardHoverEffects();
 });
 
 // Function to handle sidebar interactions
@@ -223,4 +225,52 @@ function googleTranslateElementInit() {
         includedLanguages: 'en,fr,de,it,pt,ca,eu,gl',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
+}
+
+// Scroll Reveal Animation with Intersection Observer
+function initializeScrollReveal() {
+    const sections = document.querySelectorAll('.section');
+
+    if (!sections.length) return;
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optionally unobserve after revealing
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+}
+
+// Card Hover Effects with Mouse Tracking
+function initializeCardHoverEffects() {
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+            card.style.setProperty('--mouse-x', `${x}%`);
+            card.style.setProperty('--mouse-y', `${y}%`);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--mouse-x', '50%');
+            card.style.setProperty('--mouse-y', '50%');
+        });
+    });
 }
