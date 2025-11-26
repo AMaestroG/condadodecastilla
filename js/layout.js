@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('header-placeholder').innerHTML = data;
             // Initialize sidebar navigation after header is loaded
             initializeSidebarNavigation();
+            initializeThemeToggle();
+            initializeLanguageToggle();
         })
         .catch(error => console.error('Error loading header:', error));
 
@@ -63,6 +65,67 @@ function initializeSidebarNavigation() {
 
     // Initialize Google Translate
     initializeGoogleTranslate();
+}
+
+function initializeThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+    // Check saved preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (icon) icon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+
+            // Update Icon
+            if (isDark) {
+                if (icon) icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                if (icon) icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+}
+
+function initializeLanguageToggle() {
+    const langToggle = document.getElementById('lang-toggle');
+    const langBar = document.getElementById('language-bar');
+    const closeLangBar = document.getElementById('close-lang-bar');
+    const body = document.body;
+
+    if (langToggle && langBar) {
+        langToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langBar.classList.toggle('active');
+            body.classList.toggle('language-open');
+        });
+
+        if (closeLangBar) {
+            closeLangBar.addEventListener('click', () => {
+                langBar.classList.remove('active');
+                body.classList.remove('language-open');
+            });
+        }
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (langBar.classList.contains('active') &&
+                !langBar.contains(e.target) &&
+                !langToggle.contains(e.target)) {
+                langBar.classList.remove('active');
+                body.classList.remove('language-open');
+            }
+        });
+    }
 }
 
 function initializeCarousels() {
