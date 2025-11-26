@@ -266,48 +266,58 @@ body.dark-mode #sidebar-toggle {
   transform: translateX(5px);
 }
 
-/* --- 7. Language Bar --- */
+/* --- 7. Language Bar (Push-down) --- */
 .language-bar {
-  position: fixed;
-  top: 90px;
-  right: 20px;
+  position: relative;
+  /* Takes up space in flow */
+  width: 100%;
+  height: 0;
+  /* Hidden by default */
+  overflow: hidden;
   background: var(--condado-glass);
-  border: 1px solid var(--condado-secundario);
-  border-radius: 10px;
-  padding: 15px;
-  z-index: 9998;
-  display: none;
-  box-shadow: var(--shadow-3d);
-  max-width: 300px;
-  text-align: center;
+  border-bottom: 1px solid var(--condado-secundario);
+  z-index: 10002;
+  /* Above header controls */
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
 }
 
-.language-bar.active {
-  display: block;
-  animation: slideDown 0.3s ease-out;
+/* When active (toggled by JS on body) */
+body.lang-open .language-bar {
+  height: 60px;
+  /* Fixed height for animation */
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
+/* Push down fixed elements */
+body.lang-open .header-controls {
+  top: 80px;
+  /* 20px + 60px */
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+body.lang-open .sidebar {
+  padding-top: 160px;
+  /* Adjust for extra space */
 }
 
 .close-lang-bar {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
   background: none;
   border: none;
   color: var(--condado-texto);
   cursor: pointer;
   font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.close-lang-bar:hover {
+  color: var(--condado-primario);
+  transform: translateY(-50%) rotate(90deg);
 }
 
 /* --- 8. Hero Section --- */
@@ -321,6 +331,8 @@ body.dark-mode #sidebar-toggle {
   text-align: center;
   padding: 2rem;
   background: linear-gradient(rgba(74, 13, 103, 0.05), rgba(74, 13, 103, 0.05));
+  transition: padding-top 0.4s ease;
+  /* Smooth push */
 }
 
 .hero-content {

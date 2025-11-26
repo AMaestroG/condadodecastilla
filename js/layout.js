@@ -132,12 +132,14 @@ function initializeLanguageToggle() {
 
     langToggle.addEventListener('click', (e) => {
         e.stopPropagation();
+        document.body.classList.toggle('lang-open');
         langBar.classList.toggle('active');
     });
 
     if (closeLangBar) {
         closeLangBar.addEventListener('click', (e) => {
             e.stopPropagation();
+            document.body.classList.remove('lang-open');
             langBar.classList.remove('active');
         });
     }
@@ -146,6 +148,7 @@ function initializeLanguageToggle() {
         if (langBar.classList.contains('active') &&
             !langBar.contains(e.target) &&
             !langToggle.contains(e.target)) {
+            document.body.classList.remove('lang-open');
             langBar.classList.remove('active');
         }
     });
