@@ -1,0 +1,227 @@
+/* =========================================
+   IMPERIAL SUITE - 2025 VISUAL COMPONENTS
+   ========================================= */
+
+/* --- 1. RETABLO GRID (Bento/Masonry Layout) --- */
+.retablo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.retablo-item {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    box-shadow: var(--shadow-3d);
+}
+
+.retablo-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--condado-acento);
+    box-shadow: 0 20px 40px rgba(184, 134, 11, 0.2);
+    z-index: 10;
+}
+
+.retablo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: sepia(0.2) contrast(1.1);
+}
+
+.retablo-item:hover img {
+    transform: scale(1.1);
+    filter: sepia(0) contrast(1.2);
+}
+
+.retablo-content {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.retablo-title {
+    font-family: var(--font-heading);
+    color: var(--condado-primario);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 2. CHRONOSCOPE (Vertical Timeline) --- */
+.chronoscope {
+    position: relative;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem 0;
+}
+
+.chronoscope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--condado-acento), transparent);
+    transform: translateX(-50%);
+}
+
+.chrono-event {
+    position: relative;
+    width: 50%;
+    padding: 2rem;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.chrono-event:nth-child(odd) {
+    left: 0;
+    text-align: right;
+    padding-right: 3rem;
+}
+
+.chrono-event:nth-child(even) {
+    left: 50%;
+    text-align: left;
+    padding-left: 3rem;
+}
+
+.chrono-event.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chrono-marker {
+    position: absolute;
+    top: 2.5rem;
+    width: 20px;
+    height: 20px;
+    background: var(--condado-acento);
+    border-radius: 50%;
+    border: 4px solid var(--condado-fondo);
+    box-shadow: 0 0 15px var(--condado-acento);
+    z-index: 2;
+}
+
+.chrono-event:nth-child(odd) .chrono-marker {
+    right: -10px;
+}
+
+.chrono-event:nth-child(even) .chrono-marker {
+    left: -10px;
+}
+
+.chrono-date {
+    font-family: var(--font-heading);
+    color: var(--condado-acento);
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.chrono-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    border-radius: 8px;
+    box-shadow: var(--shadow-3d);
+}
+
+/* --- 3. RELIC CARD (3D Tilt & Glow) --- */
+.relic-card {
+    position: relative;
+    background: rgba(20, 10, 5, 0.6);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.1s ease;
+    /* Fast for tilt effect */
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.relic-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 215, 0, 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.relic-card:hover::after {
+    opacity: 1;
+}
+
+.relic-title {
+    font-family: var(--font-heading);
+    color: var(--condado-acento);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* --- 4. SCRIPTORIUM QUOTE --- */
+.scriptorium-quote {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--condado-primario);
+    padding: 4rem 2rem;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.scriptorium-quote::before,
+.scriptorium-quote::after {
+    content: '❦';
+    display: block;
+    font-size: 3rem;
+    color: var(--condado-acento);
+    opacity: 0.6;
+    margin: 1rem 0;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .chronoscope::before {
+        left: 20px;
+    }
+
+    .chrono-event {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .chrono-event:nth-child(odd),
+    .chrono-event:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+
+    .chrono-event:nth-child(odd) .chrono-marker,
+    .chrono-event:nth-child(even) .chrono-marker {
+        left: 10px;
+        right: auto;
+    }
+}
