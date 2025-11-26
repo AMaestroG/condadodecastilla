@@ -70,23 +70,28 @@
 
     <div id="footer-placeholder"></div>
     <script>window.siteRoot = '../';</script>
-    let name = document.getElementById('nombre').value.trim();
-    let email = document.getElementById('email').value.trim();
-    let subject = document.getElementById('asunto').value.trim();
-    let message = document.getElementById('mensaje').value.trim();
+    <script src="../js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function (event) {
+                    let name = document.getElementById('nombre').value.trim();
+                    let email = document.getElementById('email').value.trim();
+                    let subject = document.getElementById('asunto').value.trim();
+                    let message = document.getElementById('mensaje').value.trim();
 
-    if (!name || !email || !subject || !message) {
-    alert('Por favor, completa todos los campos requeridos.');
-    event.preventDefault();
-    return;
-    }
+                    if (!name || !email || !subject || !message) {
+                        alert('Por favor, completa todos los campos requeridos.');
+                        event.preventDefault();
+                        return;
+                    }
 
-    let mailtoLink =
-    `mailto:ablmaestro@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nombre: " + name +
-    "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
-    this.action = mailtoLink;
-    });
-    }
+                    let mailtoLink = `mailto:ablmaestro@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nombre: " + name + "\nEmail: " + email + "\n\nMensaje:\n" + message)}`;
+                    this.action = mailtoLink;
+                });
+            }
+        });
     </script>
 </body>
 
