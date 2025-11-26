@@ -1,6 +1,6 @@
 /* 
-   Condado de Castilla - Comprehensive Refactor 2025 
-   Fixed Visibility, Centering, and Theming
+   Condado de Castilla - Visual Refinement 2025 
+   Centering, Purple Frames, 3D Shadows, Light Effects
 */
 
 /* --- 1. Variables & Reset --- */
@@ -17,16 +17,26 @@
   --condado-texto: #1a1a1a;
   /* Near Black */
   --condado-glass: rgba(242, 240, 230, 0.95);
-  /* High opacity for readability */
 
-  /* Dimensions */
-  --header-height: 80px;
-  --max-width: 1200px;
-
-  /* Effects */
-  --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-hard: 0 10px 20px rgba(0, 0, 0, 0.2);
-  --glow: 0 0 15px rgba(212, 175, 55, 0.4);
+  /* New Visual Effects */
+  --frame-bg: rgba(74, 13, 103, 0.03);
+  /* Very subtle purple tint */
+  --frame-border: rgba(74, 13, 103, 0.15);
+  --shadow-3d:
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0, 0, 0, .1),
+    0 0 5px rgba(0, 0, 0, .1),
+    0 1px 3px rgba(0, 0, 0, .3),
+    0 3px 5px rgba(0, 0, 0, .2),
+    0 5px 10px rgba(0, 0, 0, .25),
+    0 10px 10px rgba(0, 0, 0, .2),
+    0 20px 20px rgba(0, 0, 0, .15);
+  --shadow-soft: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --glow-active: 0 0 20px var(--condado-acento), 0 0 40px var(--condado-acento);
 }
 
 *,
@@ -50,19 +60,33 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  /* Global Centering */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* --- 2. Dark Mode (Old Book Theme) --- */
 body.dark-mode {
   --condado-fondo: #2d1b15;
-  /* Deep Leather Brown */
   --condado-texto: #e0d8c0;
-  /* Parchment */
   --condado-glass: rgba(45, 27, 21, 0.95);
+  --frame-bg: rgba(0, 0, 0, 0.3);
+  --frame-border: rgba(212, 175, 55, 0.2);
+  --shadow-3d:
+    0 1px 0 #1a0f0b,
+    0 2px 0 #160d09,
+    0 3px 0 #110a07,
+    0 4px 0 #0d0805,
+    0 5px 0 #080503,
+    0 6px 1px rgba(0, 0, 0, .5),
+    0 0 5px rgba(0, 0, 0, .5),
+    0 1px 3px rgba(0, 0, 0, .7),
+    0 3px 5px rgba(0, 0, 0, .6),
+    0 5px 10px rgba(0, 0, 0, .5),
+    0 10px 10px rgba(0, 0, 0, .4),
+    0 20px 20px rgba(0, 0, 0, .3);
 
   background-color: var(--condado-fondo);
-  /* Complex gradient to simulate old book leather/texture */
   background-image:
     radial-gradient(circle at center, rgba(93, 64, 55, 0.8) 0%, rgba(45, 27, 21, 1) 90%),
     url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
@@ -72,30 +96,59 @@ body.dark-mode {
 /* --- 3. Global Layout & Container --- */
 .container {
   width: 100%;
-  max-width: var(--max-width);
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Ensure content inside container is centered */
 }
 
 main {
   flex: 1;
-  /* Pushes footer down */
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Global centering */
 }
 
 section {
   width: 100%;
-  padding: 4rem 0;
+  padding: 4rem 20px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
-/* --- 4. Fixed Header Buttons (Crucial for Visibility) --- */
-/* Wrapper for buttons to ensure they stay together */
+/* --- 4. Purple Frames (Semi-transparent Sections) --- */
+.section-frame {
+  background: var(--frame-bg);
+  border: 1px solid var(--frame-border);
+  border-radius: 20px;
+  padding: 3rem;
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--condado-secundario), transparent);
+}
+
+/* --- 5. Header Buttons (Transparent & Centered Group) --- */
 .header-controls {
   position: fixed;
   top: 20px;
@@ -103,50 +156,56 @@ section {
   display: flex;
   gap: 15px;
   z-index: 10000;
-  /* Highest priority */
 }
 
-/* Individual Buttons */
 #theme-toggle,
 #lang-toggle,
 #sidebar-toggle {
-  position: relative;
-  /* Reset fixed positioning from individual buttons */
-  top: auto;
-  right: auto;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--condado-glass);
-  border: 2px solid var(--condado-secundario);
+  background: rgba(255, 255, 255, 0.1);
+  /* Transparent Glass */
+  border: 1px solid var(--condado-secundario);
   color: var(--condado-primario);
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-hard);
-  transition: all 0.3s ease;
   backdrop-filter: blur(5px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode #theme-toggle,
 body.dark-mode #lang-toggle,
 body.dark-mode #sidebar-toggle {
+  background: rgba(0, 0, 0, 0.2);
   color: var(--condado-acento);
   border-color: var(--condado-acento);
+}
+
+/* Light Effect on Click/Active */
+#theme-toggle:active,
+#lang-toggle:active,
+#sidebar-toggle:active {
+  transform: scale(0.95);
+  box-shadow: var(--glow-active);
+  background: var(--condado-acento);
+  color: #fff;
+  border-color: #fff;
 }
 
 #theme-toggle:hover,
 #lang-toggle:hover,
 #sidebar-toggle:hover {
-  transform: translateY(-3px) scale(1.1);
-  background: var(--condado-primario);
-  color: var(--condado-acento);
-  box-shadow: var(--glow);
+  transform: translateY(-2px);
+  background: rgba(74, 13, 103, 0.1);
+  box-shadow: 0 0 10px var(--condado-secundario);
 }
 
-/* --- 5. Sidebar Navigation --- */
+/* --- 6. Sidebar Navigation --- */
 .sidebar {
   position: fixed;
   top: 0;
@@ -154,15 +213,12 @@ body.dark-mode #sidebar-toggle {
   width: 320px;
   height: 100vh;
   background: var(--condado-glass);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   z-index: 9999;
-  /* Just below buttons */
   transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-left: 3px solid var(--condado-secundario);
-  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+  border-left: 1px solid var(--condado-secundario);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
   padding: 100px 20px 20px 20px;
-  /* Top padding clears buttons */
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,7 +234,7 @@ body.dark-mode #sidebar-toggle {
   border-radius: 50%;
   border: 3px solid var(--condado-secundario);
   margin-bottom: 2rem;
-  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .nav-links {
@@ -188,7 +244,7 @@ body.dark-mode #sidebar-toggle {
 }
 
 .nav-links li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .nav-links a {
@@ -197,35 +253,33 @@ body.dark-mode #sidebar-toggle {
   font-size: 1.1rem;
   font-weight: bold;
   display: block;
-  padding: 10px;
-  border-bottom: 1px solid transparent;
+  padding: 12px;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .nav-links a:hover {
+  background: rgba(74, 13, 103, 0.05);
   color: var(--condado-primario);
-  border-bottom-color: var(--condado-secundario);
+  border-color: var(--condado-secundario);
   transform: translateX(5px);
 }
 
-body.dark-mode .nav-links a:hover {
-  color: var(--condado-acento);
-}
-
-/* --- 6. Language Bar --- */
+/* --- 7. Language Bar --- */
 .language-bar {
   position: fixed;
   top: 90px;
   right: 20px;
   background: var(--condado-glass);
-  border: 2px solid var(--condado-secundario);
+  border: 1px solid var(--condado-secundario);
   border-radius: 10px;
   padding: 15px;
   z-index: 9998;
   display: none;
-  /* Toggled by JS */
-  box-shadow: var(--shadow-hard);
+  box-shadow: var(--shadow-3d);
   max-width: 300px;
+  text-align: center;
 }
 
 .language-bar.active {
@@ -256,7 +310,7 @@ body.dark-mode .nav-links a:hover {
   font-size: 1.2rem;
 }
 
-/* --- 7. Hero Section --- */
+/* --- 8. Hero Section --- */
 .hero {
   width: 100%;
   min-height: 80vh;
@@ -266,7 +320,7 @@ body.dark-mode .nav-links a:hover {
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(rgba(74, 13, 103, 0.1), rgba(74, 13, 103, 0.1));
+  background: linear-gradient(rgba(74, 13, 103, 0.05), rgba(74, 13, 103, 0.05));
 }
 
 .hero-content {
@@ -278,98 +332,137 @@ body.dark-mode .nav-links a:hover {
 }
 
 .hero-escudo {
-  width: 150px;
+  width: 160px;
   height: auto;
   border-radius: 10px;
-  box-shadow: var(--shadow-hard);
+  box-shadow: var(--shadow-3d);
+  /* 3D Shadow */
   border: 2px solid var(--condado-secundario);
+  transition: transform 0.3s ease;
+}
+
+.hero-escudo:hover {
+  transform: translateY(-5px) scale(1.02);
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--condado-primario);
   margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-mode h1 {
   color: var(--condado-acento);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
-/* --- 8. Components (Cards, Buttons) --- */
+/* --- 9. Components (Cards, Buttons) --- */
 .cta-button,
 .read-more {
   display: inline-block;
-  padding: 12px 30px;
-  background: var(--condado-primario);
-  color: #fff;
+  padding: 12px 35px;
+  background: transparent;
+  /* Transparent as requested */
+  color: var(--condado-primario);
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
-  border: 2px solid var(--condado-secundario);
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-soft);
+  border: 2px solid var(--condado-primario);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
   letter-spacing: 1px;
+  backdrop-filter: blur(5px);
+}
+
+body.dark-mode .cta-button,
+body.dark-mode .read-more {
+  color: var(--condado-acento);
+  border-color: var(--condado-acento);
 }
 
 .cta-button:hover,
 .read-more:hover {
-  background: var(--condado-secundario);
+  background: var(--condado-primario);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(74, 13, 103, 0.3);
+}
+
+body.dark-mode .cta-button:hover,
+body.dark-mode .read-more:hover {
+  background: var(--condado-acento);
+  color: #2d1b15;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Light Effect on Click */
+.cta-button:active,
+.read-more:active {
+  transform: scale(0.95);
+  box-shadow: var(--glow-active);
+  background: #fff;
   color: var(--condado-primario);
-  transform: translateY(-3px);
-  box-shadow: var(--glow);
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid var(--condado-secundario);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 15px;
   padding: 2rem;
   transition: all 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  /* Center content in card */
+  text-align: center;
+  box-shadow: var(--shadow-soft);
 }
 
 body.dark-mode .card {
-  background: rgba(0, 0, 0, 0.2);
-  border-color: var(--condado-acento);
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(212, 175, 55, 0.1);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: var(--shadow-hard);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-3d);
+  /* 3D Shadow on Hover */
+  border-color: var(--condado-acento);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 body.dark-mode .card:hover {
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: var(--glow);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 1rem;
-  border: 1px solid var(--condado-secundario);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* --- 9. Carousel --- */
+/* --- 10. Carousel --- */
 .carousel-container {
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 20px 0;
+  padding: 40px 0;
+  /* More space for shadows */
 }
 
 .carousel-track {
   display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease;
+  gap: 30px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px;
+  /* Avoid cutting off shadows */
 }
 
 .carousel-slide {
@@ -381,23 +474,38 @@ body.dark-mode .card:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--condado-primario);
-  color: #fff;
-  border: none;
-  width: 40px;
-  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  /* Transparent */
+  color: var(--condado-primario);
+  border: 1px solid var(--condado-primario);
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.8;
+  backdrop-filter: blur(5px);
+  transition: all 0.2s ease;
+}
+
+body.dark-mode .carousel-button {
+  color: var(--condado-acento);
+  border-color: var(--condado-acento);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .carousel-button:hover {
-  opacity: 1;
-  background: var(--condado-secundario);
+  background: var(--condado-primario);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 15px var(--condado-primario);
+}
+
+.carousel-button:active {
+  transform: translateY(-50%) scale(0.9);
+  box-shadow: var(--glow-active);
 }
 
 .carousel-button.prev {
@@ -408,65 +516,94 @@ body.dark-mode .card:hover {
   right: 10px;
 }
 
-/* --- 10. Footer --- */
+/* --- 11. Footer --- */
 footer {
-  background: var(--condado-primario);
+  background: linear-gradient(to top, #1a0525, var(--condado-primario));
   color: #fff;
-  padding: 3rem 0;
+  padding: 4rem 0;
   text-align: center;
-  border-top: 5px solid var(--condado-secundario);
+  border-top: 4px solid var(--condado-secundario);
   margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 footer a {
   color: var(--condado-acento);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--condado-acento);
 }
 
-/* --- 11. Scroll to Top --- */
+/* --- 12. Scroll to Top --- */
 #scrollToTopBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
   width: 50px;
   height: 50px;
-  background: var(--condado-primario);
+  background: rgba(74, 13, 103, 0.8);
   color: var(--condado-acento);
   border: 2px solid var(--condado-secundario);
   border-radius: 50%;
   display: none;
-  /* JS toggles flex */
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 9000;
-  box-shadow: var(--shadow-hard);
+  box-shadow: var(--shadow-3d);
+  backdrop-filter: blur(5px);
 }
 
-/* --- 12. Utilities --- */
+#scrollToTopBtn:active {
+  box-shadow: var(--glow-active);
+  transform: scale(0.9);
+}
+
+/* --- 13. Utilities --- */
 .imperial-frame {
   border: 2px solid var(--condado-secundario);
-  padding: 2rem;
+  padding: 3rem;
   position: relative;
-  margin: 2rem 0;
+  margin: 3rem 0;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-3d);
 }
 
-.alternate-bg {
-  background-color: rgba(74, 13, 103, 0.05);
+body.dark-mode .imperial-frame {
+  background: rgba(0, 0, 0, 0.2);
 }
 
-body.dark-mode .alternate-bg {
-  background-color: rgba(0, 0, 0, 0.2);
+.imperial-frame::before,
+.imperial-frame::after {
+  content: '❖';
+  position: absolute;
+  font-size: 2rem;
+  color: var(--condado-secundario);
+  background: var(--condado-fondo);
+  padding: 0 15px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* --- 13. Responsive --- */
+.imperial-frame::before {
+  top: -1.2rem;
+}
+
+.imperial-frame::after {
+  bottom: -1.2rem;
+}
+
+/* --- 14. Responsive --- */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .header-controls {
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     gap: 10px;
   }
 
@@ -481,5 +618,9 @@ body.dark-mode .alternate-bg {
   .sidebar {
     width: 100%;
     right: -100%;
+  }
+
+  .section-frame {
+    padding: 2rem 1rem;
   }
 }
