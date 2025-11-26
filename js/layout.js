@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
-            // Initialize sidebar navigation after header is loaded
+            // Initialize all navigation and header components
             initializeSidebarNavigation();
             initializeThemeToggle();
             initializeLanguageToggle();
+            initializeGoogleTranslate();
         })
         .catch(error => console.error('Error loading header:', error));
 
@@ -17,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('footer-placeholder').innerHTML = data;
         })
         .catch(error => console.error('Error loading footer:', error));
+
+    // Initialize other components that don't depend on header/footer loading
+    initializeCarousels();
+    initializeScrollButton();
 });
 
 // Function to handle sidebar interactions
@@ -50,10 +55,9 @@ function initializeSidebarNavigation() {
                 sidebar.classList.remove('sidebar-visible');
                 body.classList.remove('sidebar-active');
                 sidebarToggle.setAttribute('aria-expanded', 'false');
+                sidebarToggle.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
-    } else {
-        console.error("Sidebar toggle, sidebar element, or body not found.");
     }
 }
 
@@ -87,30 +91,29 @@ function initializeThemeToggle() {
 }
 
 function initializeLanguageToggle() {
-    const langToggle = document.getElementById('language-toggle');
-    const langMenu = document.getElementById('language-menu');
+    const langToggle = document.getElementById('lang-toggle');
+    const langBar = document.getElementById('language-bar');
+    const closeLangBar = document.getElementById('close-lang-bar');
 
-    if (langToggle && langMenu) {
+    if (langToggle && langBar) {
         langToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            langMenu.classList.toggle('language-menu-visible');
-
-            // Toggle Icon
-            if (langMenu.classList.contains('language-menu-visible')) {
-                langToggle.innerHTML = '<i class="fas fa-times"></i>';
-            } else {
-                langToggle.innerHTML = '<i class="fas fa-globe"></i>';
-            }
+            langBar.classList.toggle('active');
         });
+
+        if (closeLangBar) {
+            closeLangBar.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langBar.classList.remove('active');
+            });
+        }
 
         // Close when clicking outside
         document.addEventListener('click', (e) => {
-            if (langMenu.classList.contains('language-menu-visible') &&
-                !langMenu.contains(e.target) &&
+            if (langBar.classList.contains('active') &&
+                !langBar.contains(e.target) &&
                 !langToggle.contains(e.target)) {
-
-                langMenu.classList.remove('language-menu-visible');
-                langToggle.innerHTML = '<i class="fas fa-globe"></i>';
+                langBar.classList.remove('active');
             }
         });
     }
@@ -203,6 +206,9 @@ function initializeScrollButton() {
 
 // Google Translate initialization
 function initializeGoogleTranslate() {
+    // Check if script is already added
+    if (document.querySelector('script[src*="translate.google.com"]')) return;
+
     // Add Google Translate script
     const script = document.createElement('script');
     script.type = 'text/javascript';

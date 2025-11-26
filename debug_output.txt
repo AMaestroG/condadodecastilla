@@ -1,0 +1,25 @@
+﻿Analyzing index.html bytes...
+Found 'Cerezo de R' at 422
+Offset 422 : 43 65 72 65 7A 6F 20 64 65 20 52 C3 83 C2 AD 6F 20 54 69 72
+Found 'Cerezo de R' at 592
+Offset 592 : 43 65 72 65 7A 6F 20 64 65 20 52 C3 83 C2 AD 6F 20 54 69 72
+Found 'Cerezo de R' at 2895
+Offset 2895 : 43 65 72 65 7A 6F 20 64 65 20 52 C3 83 C2 AD 6F 20 54 69 72
+Found 'Cerezo de R' at 3435
+Offset 3435 : 43 65 72 65 7A 6F 20 64 65 20 52 C3 83 C2 AD 6F 20 54 69 72
+Found 'Cerezo de R' at 4181
+Offset 4181 : 43 65 72 65 7A 6F 20 64 65 20 52 C3 83 C2 AD 6F 20 54 69 72
+Found 'Cerezo de R' at 7021
+Offset 7021 : 43 65 72 65 7A 6F 20 64 65 20 52 C3 83 C2 AD 6F 20 54 69 72
+Found 'Tir' at 439
+Offset 439 : 54 69 72 C3 83 C2 B3 6E 2C 20 65 6C 20 41 6C
+Found 'Tir' at 609
+Offset 609 : 54 69 72 C3 83 C2 B3 6E 2C 20 4F 72 69 67 65
+Found 'Tir' at 2912
+Offset 2912 : 54 69 72 C3 83 C2 B3 6E 2E 3C 2F 70 3E 0D 0A
+Found 'Tir' at 3452
+Offset 3452 : 54 69 72 C3 83 C2 B3 6E 22 20 66 72 61 6D 65
+Found 'Tir' at 4198
+Offset 4198 : 54 69 72 C3 83 C2 B3 6E 20 65 73 20 66 75 6E
+Found 'Tir' at 7038
+Offset 7038 : 54 69 72 C3 83 C2 B3 6E 3A 0D 0A 20 20 20 20
