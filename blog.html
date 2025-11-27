@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crónicas de Cerasio - Blog del Condado de Castilla</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .blog-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/img/vault/auca_patricia.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--condado-blanco-alabastro);
+            padding: 100px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .blog-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--condado-blanco-alabastro);
+            border: 1px solid var(--condado-oro-viejo);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+            border-bottom: 3px solid var(--condado-purpura-imperial);
+        }
+
+        .blog-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            background: var(--condado-purpura-imperial);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .blog-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--condado-negro-carbon);
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--condado-rojo-sangre);
+            font-weight: bold;
+            transition: color 0.3s;
+            align-self: flex-end;
+        }
+
+        .read-more:hover {
+            color: var(--condado-purpura-imperial);
+        }
+
+        .read-more i {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <header class="blog-hero">
+        <h1>Crónicas de Cerasio</h1>
+        <p>Historia, Leyendas y Descubrimientos del Corazón de Castilla</p>
+    </header>
+
+    <main class="blog-container">
+        <!-- Article 1 -->
+        <article class="blog-card">
+            <img src="assets/img/vault/alcazar_cerasio.png" alt="Alcázar de Cerasio" class="blog-img">
+            <div class="blog-content">
+                <span class="blog-tag">Historia Fundacional</span>
+                <h2 class="blog-title">Cerezo de Río Tirón: La Verdadera Cuna de Castilla</h2>
+                <p class="blog-excerpt">
+                    Descubre por qué la antigua Auca Patricia y su Alcázar de Cerasio son el verdadero origen
+                    administrativo y político del Condado de Castilla, desplazando el eje tradicional de la historia.
+                </p>
+                <a href="blog_cerezo_cuna_castilla.html" class="read-more">Leer Artículo <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <!-- Placeholder for future articles -->
+        <article class="blog-card">
+            <img src="assets/img/vault/roman_coin.png" alt="Moneda Romana" class="blog-img">
+            <div class="blog-content">
+                <span class="blog-tag">Arqueología</span>
+                <h2 class="blog-title">El Misterio de la Moneda de la Estrella</h2>
+                <p class="blog-excerpt">
+                    Un análisis de los hallazgos numismáticos en Cerezo que vinculan el escudo actual de la villa con la
+                    simbología imperial romana. ¿Coincidencia o memoria histórica?
+                </p>
+                <a href="#" class="read-more">Próximamente <i class="fas fa-clock"></i></a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="assets/img/vault/auca_patricia.png" alt="Auca Patricia" class="blog-img">
+            <div class="blog-content">
+                <span class="blog-tag">Rutas Históricas</span>
+                <h2 class="blog-title">La Vía de Italia in Hispaniam</h2>
+                <p class="blog-excerpt">
+                    Recorremos la antigua calzada romana que cruzaba Cerezo, sirviendo como la primera "autopista" para
+                    legiones y peregrinos antes del Camino Francés.
+                </p>
+                <a href="#" class="read-more">Próximamente <i class="fas fa-clock"></i></a>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/layout.js"></script>
+</body>
+
+</html>
