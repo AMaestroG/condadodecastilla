@@ -11,7 +11,27 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             const headerPlaceholder = document.getElementById('header-placeholder');
             if (headerPlaceholder) {
-                headerPlaceholder.innerHTML = data;
+                // Fix relative paths
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+
+                // Fix links
+                doc.querySelectorAll('a, link').forEach(el => {
+                    const href = el.getAttribute('href');
+                    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('//')) {
+                        el.setAttribute('href', root + href);
+                    }
+                });
+
+                // Fix images and scripts
+                doc.querySelectorAll('img, script').forEach(el => {
+                    const src = el.getAttribute('src');
+                    if (src && !src.startsWith('http') && !src.startsWith('//')) {
+                        el.setAttribute('src', root + src);
+                    }
+                });
+
+                headerPlaceholder.innerHTML = doc.body.innerHTML;
                 console.log('Header loaded successfully');
 
                 // Initialize components with a slight delay to ensure DOM is ready
@@ -36,7 +56,27 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             const footerPlaceholder = document.getElementById('footer-placeholder');
             if (footerPlaceholder) {
-                footerPlaceholder.innerHTML = data;
+                // Fix relative paths
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+
+                // Fix links
+                doc.querySelectorAll('a, link').forEach(el => {
+                    const href = el.getAttribute('href');
+                    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('//')) {
+                        el.setAttribute('href', root + href);
+                    }
+                });
+
+                // Fix images and scripts
+                doc.querySelectorAll('img, script').forEach(el => {
+                    const src = el.getAttribute('src');
+                    if (src && !src.startsWith('http') && !src.startsWith('//')) {
+                        el.setAttribute('src', root + src);
+                    }
+                });
+
+                footerPlaceholder.innerHTML = doc.body.innerHTML;
                 console.log('Footer loaded successfully');
             }
         })
