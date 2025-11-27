@@ -22,12 +22,20 @@ Fernán González logró reunir bajo su mando varios condados que antes eran ind
 - **Conde de Cerezo y Lantarón**
 - Conde de Álava
 
-## La Conexión con Cerezo
+## El Buen Conde
 
-Aunque la leyenda lo vincula fuertemente a San Pedro de Arlanza y Lara, sus títulos demuestran que **Cerezo y Lantarón** eran pilares fundamentales de su poder. Para ser "Señor de toda Castilla", tuvo que hacerse con el control del antiguo núcleo de Cerezo, la vieja capital romana y visigoda.
+**Fernán González** es el héroe de la independencia castellana. Unificó los diversos condados (Burgos, Lara, Lantarón, Cerezo, Álava) bajo una sola mano, creando un poder autónomo frente a León.
 
-> [!NOTE] Genealogía
-> Su ascenso al poder implicó la integración de los linajes de los antiguos condes de Cerezo, posiblemente a través de matrimonios y alianzas (como con Doña Sancha).
+### Vínculo con Cerezo
+
+Aunque se le asocia con Lara y Burgos, Fernán González aparece en la documentación primero como **Conde de Lara y Cerezo**.
+
+- **Base de Poder**: Para unificar Castilla, primero tuvo que asegurar el norte. El control del **Alcázar de Cerasio** y de Lantarón fue fundamental para proteger su retaguardia de las incursiones navarras y musulmanas.
+- **La Torre de Fernán González**: En Cerezo se conservan restos de una torre que la tradición atribuye a su época, parte del complejo defensivo del Alcázar.
+
+> [!QUOTE] La Unificación
+> *"Juntó los condados y hizo de Castilla una lanza."*
+> Esa lanza tenía su punta de hierro en las fortalezas del Ebro como Cerezo.
 
 ---
-**Ver también**: [[Gonzalo Téllez]], [[Cerezo de Río Tirón]]
+**Ver también**: [[Gonzalo Téllez]], [[Rodrigo (Conde de Castilla)|Rodrigo]]

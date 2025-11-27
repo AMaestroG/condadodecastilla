@@ -14,16 +14,19 @@ created: 2025-11-27
 
 **Rodrigo** (fallecido en 873) es considerado el **primer Conde de Castilla**.
 
-## Su Base en Cerezo
+## El Primer Conde de Castilla
 
-Aunque la historia general a menudo pasa por alto los detalles geográficos precisos, Rodrigo gobernó desde el **Alcázar de Cerasio** (Cerezo de Río Tirón).
+**Rodrigo** es la figura fundacional del Condado de Castilla. Nombrado por Ordoño I en el año 860, su misión fue repoblar y defender la frontera oriental del reino asturiano: la "Bardulia", que pronto pasaría a llamarse Castilla.
 
-- **Alfoz de Cerezo**: Su dominio se centraba en esta fortaleza inexpugnable construida sobre la antigua ciudad romana.
-- **Batalla de la Morcuera**: Dirigió esta famosa batalla, que tuvo lugar en el territorio de su alfoz.
+### Base de Operaciones: El Alcázar de Cerasio
 
-## Legado
+Aunque repobló Amaya, Rodrigo necesitaba una base sólida para controlar el paso del Ebro y el Tirón.
 
-Fue el iniciador de la dinastía condal que eventualmente llevaría a la independencia de Castilla. Su poder se basaba en el control de la frontera oriental (Álava y Cerezo) frente al Islam.
+- **Cerezo como Capital Militar**: El **Alcázar de Cerasio**, construido sobre la acrópolis romana de Auca, le sirvió como cuartel general inexpugnable. Desde aquí lanzó expediciones hacia La Rioja y Álava.
+- **Control del Territorio**: Su dominio se extendía desde las montañas cantábricas hasta el Ebro, con Cerezo como pivote central de su defensa.
+
+> [!NOTE] Legado
+> Rodrigo no solo fue un guerrero, sino un administrador que sentó las bases de la independencia castellana. Su elección de Cerezo demuestra la importancia estratégica de esta plaza en el siglo IX.
 
 ---
-**Ver también**: [[Diego Rodríguez Porcelos]], [[Cerezo de Río Tirón]]
+**Ver también**: [[Diego Rodríguez Porcelos]], [[Alcázar de Cerasio]]

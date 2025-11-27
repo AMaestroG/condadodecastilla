@@ -13,15 +13,20 @@ created: 2025-11-27
 
 El **Apóstol Santiago** y el camino que lleva a su tumba son ejes vertebradores de la historia medieval de España.
 
-## El Camino Primitivo por Cerezo
+## El Apóstol y la Vía Romana
 
-Antes de que el rey Sancho III el Mayor desviara el Camino de Santiago por Nájera y Burgos (siglo XI), la ruta seguía la antigua **Vía Romana de Italia in Hispaniam** (de Tarragona a Astorga).
+La leyenda de Santiago Matamoros está íntimamente ligada a la reconquista y a las vías de comunicación. En Cerezo, el culto a Santiago se superpone a la antigua infraestructura romana.
 
-- **Paso por Cerezo**: Esta calzada cruzaba el Ebro y pasaba directamente por **Cerezo de Río Tirón (Segisamam/Auca)**.
-- **Evidencias**: La fundación del Hospital de [[San Jorge]] en el 842 demuestra que había peregrinos y tránsito importante por esta ruta siglos antes del auge del Camino Francés actual.
+### La Vía de Italia in Hispaniam
 
-> [!TIP] Arqueología Viaria
-> El "Camino de Santiago" actual es una invención política posterior. El camino natural y romano pasaba por la capital de la zona: Auca Patricia (Cerezo).
+Cerezo (Segisamam/Auca) era una parada fundamental en la vía romana que conectaba Tarragona con Astorga. Esta calzada fue la "autopista" que utilizaron los primeros peregrinos a Compostela, mucho antes de que se consolidara el Camino Francés.
+
+> [!INFO] Evidencia Viaria
+> Aún se conservan tramos de calzada y puentes romanos (como el de San Cipriano o el de San García) en el término municipal, testigos mudos del paso de legiones y, posteriormente, de peregrinos jacobeos.
+
+### El Declive
+
+Cuando el Camino de Santiago fue desviado por los reyes navarros y castellanos hacia el sur (Nájera, Santo Domingo, Burgos), Cerezo perdió su flujo de viajeros y comercio, pero mantuvo su importancia estratégica militar durante un tiempo más.
 
 ---
-**Ver también**: [[San Jorge]], [[Cerezo de Río Tirón]]
+**Ver también**: [[San Jorge]], [[Auca Patricia]]
