@@ -2304,14 +2304,360 @@ img {
         }
 
         .article-content a:hover {
-            color: var(--color-secundario-dorado);
-        }
 
-        /* --- End of styles from historia/nuestra_historia_nuevo4.html <style> block --- */
-        /* --- Styles from inline attributes in historia/nuestra_historia_nuevo4.html --- */
-        .page-header.hero.hero-nuestra-historia-specific {
-            background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/cerezo_vista_aerea.jpg');
-            min-height: 50vh;
-        }
+            /* --- Subtle Hover Effects for Figures in Content Subsections --- */
+            .content-subsection figure img {
+                /* Ensure existing transitions from .image-gallery-intro img are not entirely overridden, 
+       or define a new specific transition here if needed.
+       The previous step already added some figure img styling, this enhances it. */
+                transition: transform var(--transition-speed-fast) ease-in-out,
+                    box-shadow var(--transition-speed-fast) ease-in-out,
+                    filter var(--transition-speed-fast) ease-in-out;
+                /* Added filter for completeness */
+            }
 
-        /* --- End of styles from inline attributes in historia/nuestra_historia_nuevo4.html --- */
+            .content-subsection figure:hover img {
+                transform: scale(1.05);
+                /* Slight zoom effect */
+                box-shadow: var(--box-shadow-medio);
+                /* Use pre-defined medium shadow */
+                /* Optional: Slightly change filter if desired, e.g., a subtle brightness or contrast change */
+                /* filter: brightness(1.05); */
+            }
+
+            /* Refine existing .image-gallery-intro img hover effect if it's too aggressive
+   or ensure it doesn't conflict. The specificity of .content-subsection figure:hover img 
+   should generally take precedence for these specific images. */
+
+            /* The following rule was added in a previous step of the *first* plan:
+.image-gallery-intro img:hover {
+    transform: scale(1.08) rotate(-2deg); 
+    box-shadow: var(--box-shadow-elevado);
+    filter: sepia(50%) contrast(1.1) brightness(0.85); 
+}
+   This is fine, the new rule is more specific for figures inside content-subsections.
+   If any .image-gallery-intro is directly inside a .content-subsection (which they are),
+   and the img is directly inside a figure, the new rule for figure:hover img will apply.
+*/
+
+            /* --- Sidebar Styles --- */
+            #sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                /* Initial hidden state, slightly wider to accommodate padding */
+                width: 280px;
+                height: 100vh;
+                background-color: var(--color-primario-purpura);
+                /* Using existing primary color */
+                padding: 20px;
+                box-shadow: 4px 0 15px rgba(var(--color-negro-contraste-rgb), 0.3);
+                transition: left 0.35s ease-in-out;
+                overflow-y: auto;
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #sidebar.sidebar-visible {
+                left: 0;
+            }
+
+            #sidebar-toggle {
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                font-size: 1.8em;
+                /* Adjusted size */
+                color: var(--color-piedra-clara);
+                background-color: var(--color-primario-purpura);
+                border: 2px solid var(--color-secundario-dorado);
+                border-radius: var(--border-radius-suave);
+                padding: 8px 12px;
+                cursor: pointer;
+                z-index: 1001;
+                transition: left 0.35s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+            }
+
+            /* Adjust toggle button position when sidebar is visible */
+            body.sidebar-active #sidebar-toggle {
+                left: 300px;
+                /* sidebar width + desired offset */
+            }
+
+
+            #sidebar .logo-link {
+                display: block;
+                text-align: center;
+                margin-bottom: 30px;
+                padding: 10px 0;
+            }
+
+            #sidebar .logo-image {
+                max-width: 80%;
+                /* Adjust as needed */
+                height: auto;
+                border-radius: var(--border-radius-suave);
+                margin: 0 auto;
+                border: 3px solid var(--color-secundario-dorado);
+            }
+
+            #sidebar .nav-links {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                /* Keep flex for easy column layout */
+                flex-direction: column;
+                /* Stack links vertically */
+                align-items: flex-start;
+                /* Align items to the start of the flex container */
+                width: 100%;
+            }
+
+            #sidebar .nav-links li {
+                width: 100%;
+                /* Make list items take full width */
+                margin-bottom: 8px;
+                /* Space between links */
+            }
+
+            #sidebar .nav-links a {
+                display: block;
+                /* Make links block-level for full-width click area */
+                padding: 12px 15px;
+                color: var(--color-piedra-clara);
+                font-family: var(--font-titulos);
+                font-size: 1.1em;
+                /* Slightly larger font for sidebar */
+                font-weight: 600;
+                text-decoration: none;
+                border-radius: var(--border-radius-suave);
+                transition: background-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease, padding-left var(--transition-speed-fast) ease;
+            }
+
+            #sidebar .nav-links a:hover,
+            #sidebar .nav-links a:focus-visible,
+            #sidebar .nav-links a.active-link {
+                background-color: var(--color-acento-amarillo);
+                color: var(--color-primario-purpura);
+                padding-left: 25px;
+                /* Indent on hover/active for visual feedback */
+                outline: none;
+            }
+
+            #sidebar .nav-links a i {
+                margin-right: 10px;
+                /* Space for icons */
+                font-size: 1.1em;
+            }
+
+            /* Main content adjustment when sidebar is active */
+            body.sidebar-active {
+                margin-left: 280px;
+                /* Should match sidebar width */
+                transition: margin-left 0.35s ease-in-out;
+            }
+
+            /* Responsive adjustments for toggle button and sidebar interaction */
+            @media (max-width: 768px) {
+
+                /* No changes needed for #sidebar-toggle related to 'body.sidebar-active' as it's handled by JS */
+                /* The main content margin adjustment will still apply, which is good. */
+                /* Ensure the old navbar and nav-toggle are hidden if they still exist or appear */
+                .navbar,
+                .nav-toggle {
+                    display: none !important;
+                    /* Force hide old navbar elements */
+                }
+            }
+
+            /* --- Styles from historia/nuestra_historia_nuevo4.html <style> block --- */
+            .article-content p {
+                margin-bottom: 1em;
+                line-height: 1.6;
+            }
+
+            .article-content h3 {
+                font-family: 'Cinzel', serif;
+                color: var(--color-secundario-dorado);
+                margin-top: 1.5em;
+                margin-bottom: 0.5em;
+            }
+
+            .article-content h4 {
+                font-family: 'Lora', serif;
+                font-style: italic;
+                color: var(--color-primario-purpura);
+                margin-top: 1em;
+                margin-bottom: 0.3em;
+            }
+
+            .article-content a {
+                color: var(--color-acento-rojo);
+                text-decoration: underline;
+            }
+
+            .article-content a:hover {
+                color: var(--color-secundario-dorado);
+            }
+
+            /* --- End of styles from historia/nuestra_historia_nuevo4.html <style> block --- */
+            /* --- Styles from inline attributes in historia/nuestra_historia_nuevo4.html --- */
+            .page-header.hero.hero-nuestra-historia-specific {
+                background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('/assets/img/cerezo_vista_aerea.jpg');
+                min-height: 50vh;
+            }
+
+            /* --- End of styles from inline attributes in historia/nuestra_historia_nuevo4.html --- */
+
+            /* --- Golden Electric Light Effects --- */
+
+            @keyframes electric-pulse {
+                0% {
+                    box-shadow: 0 0 5px var(--color-secundario-dorado), 0 0 10px var(--color-secundario-dorado);
+                }
+
+                50% {
+                    box-shadow: 0 0 25px var(--color-acento-amarillo), 0 0 40px var(--color-secundario-dorado);
+                }
+
+                100% {
+                    box-shadow: 0 0 5px var(--color-secundario-dorado), 0 0 10px var(--color-secundario-dorado);
+                }
+            }
+
+            @keyframes electric-border-flow {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            @keyframes spark-flicker {
+
+                0%,
+                100% {
+                    opacity: 1;
+                    filter: brightness(1);
+                }
+
+                50% {
+                    opacity: 0.8;
+                    filter: brightness(1.3);
+                }
+
+                25%,
+                75% {
+                    opacity: 0.9;
+                    filter: brightness(1.1);
+                }
+            }
+
+            @keyframes golden-glow-shimmer {
+                0% {
+                    background-position: -200%;
+                }
+
+                100% {
+                    background-position: 200%;
+                }
+            }
+
+            /* Hero Shield Electric Pulse */
+            .hero-escudo {
+                /* Combine existing animation with new pulse */
+                animation: fadeInScaleUp 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards, electric-pulse 3s infinite ease-in-out 2s;
+            }
+
+            /* CTA Button Electric Hover */
+            .cta-button {
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            /* Electric shine effect passing through */
+            .cta-button::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 215, 0, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+                transform: skewX(-25deg);
+                transition: none;
+                z-index: -1;
+            }
+
+            .cta-button:hover::after {
+                animation: golden-glow-shimmer 0.7s ease-in-out;
+            }
+
+            .cta-button:hover {
+                box-shadow: 0 0 20px var(--color-acento-amarillo), 0 0 40px var(--color-secundario-dorado), inset 0 0 10px rgba(255, 215, 0, 0.5);
+                border-color: #FFF;
+                /* Flash white briefly or stay bright */
+                text-shadow: 0 0 8px #FFF, 0 0 15px var(--color-acento-amarillo);
+            }
+
+            /* Card Electric Hover Effect */
+            .card {
+                /* Ensure card has relative positioning for pseudo-element */
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Create a glowing border layer behind the card */
+            .card::before {
+                content: '';
+                position: absolute;
+                inset: -3px;
+                /* Slightly larger than card */
+                z-index: -1;
+                background: linear-gradient(45deg, var(--color-secundario-dorado), var(--color-acento-amarillo), var(--color-primario-purpura), var(--color-secundario-dorado));
+                background-size: 300% 300%;
+                border-radius: calc(var(--border-radius-medio) + 2px);
+                opacity: 0;
+                transition: opacity 0.4s ease;
+            }
+
+            .card:hover::before {
+                opacity: 1;
+                animation: electric-border-flow 3s ease infinite;
+            }
+
+            .card:hover {
+                /* Override existing transform to coordinate with new effects if needed, 
+       but existing transform is good. Just ensuring shadow doesn't conflict too much. */
+                box-shadow: 0 10px 30px rgba(var(--color-acento-amarillo-rgb), 0.3);
+            }
+
+            /* Nav Links Spark */
+            .nav-links a:hover {
+                text-shadow: 0 0 10px var(--color-acento-amarillo), 0 0 20px var(--color-secundario-dorado);
+                color: #FFF !important;
+                /* Make text white to stand out against glow */
+            }
+
+            /* Section Title Star Pulse Enhancement */
+            .section-title::after {
+                filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+                animation: pulseStar 3.8s infinite ease-in-out, spark-flicker 5s infinite linear;
+            }
+
+            /* Image Gallery Hover Electric Border */
+            .image-gallery-intro img:hover,
+            .content-subsection figure:hover img {
+                border-color: var(--color-acento-amarillo);
+                box-shadow: 0 0 25px rgba(var(--color-acento-amarillo-rgb), 0.6);
+                filter: brightness(1.1) contrast(1.1);
+            }
