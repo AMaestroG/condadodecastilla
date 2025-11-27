@@ -1,0 +1,30 @@
+---
+tags:
+  - PersonajeHistórico
+  - Roma
+  - Emperador
+  - AucaPatricia
+aliases:
+  - Magno Máximo
+  - Máximo
+created: 2025-11-27
+---
+
+# [[Magno Clemente Máximo]]
+
+**Magno Clemente Máximo** (Hispania, c. 335 - Aquilea, 388) fue un usurpador hispano que gobernó la parte occidental del Imperio romano entre 383 y 388.
+
+## El Emperador de Auca
+
+Según las investigaciones locales en **Cerezo de Río Tirón**, Máximo habría nacido en la **Civitate Auca Patricia**.
+
+- **Vínculo con Teodosio**: Era primo o pariente cercano de [[Teodosio I el Grande]].
+- **Devoción**: Se dice que era muy devoto de San Martín de Tours.
+- **Mausoleo**: Se especula con la existencia de un mausoleo imperial en la zona de Cerezo (posiblemente bajo la iglesia de San Nicolás o en el Circo Romano) destinado a su familia.
+
+## Final Trágico
+
+Fue derrotado por Teodosio en la batalla del Save y ejecutado en Aquilea. Su hijo, [[Flavio Víctor]], corrió la misma suerte poco después.
+
+---
+**Ver también**: [[Flavio Víctor]], [[Teodosio I el Grande]]
