@@ -6,105 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crónicas de Cerasio - Blog del Condado de Castilla</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .blog-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/img/vault/auca_patricia.png');
-            background-size: cover;
-            background-position: center;
-            color: var(--condado-blanco-alabastro);
-            padding: 100px 20px;
-            text-align: center;
-            margin-top: 60px;
-        }
+    .blog-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-family: 'Cinzel', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
 
-        .blog-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-family: 'Cinzel', serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
+    .blog-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    }
 
-        .blog-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .blog-card {
+    background: var(--condado-blanco-alabastro);
+    border: 1px solid var(--condado-oro-viejo);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    }
 
-        .blog-card {
-            background: var(--condado-blanco-alabastro);
-            border: 1px solid var(--condado-oro-viejo);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
+    .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
 
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
+    .blog-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    border-bottom: 3px solid var(--condado-purpura-imperial);
+    }
 
-        .blog-img {
-            height: 200px;
-            object-fit: cover;
-            width: 100%;
-            border-bottom: 3px solid var(--condado-purpura-imperial);
-        }
+    .blog-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    }
 
-        .blog-content {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
+    .blog-tag {
+    display: inline-block;
+    background: var(--condado-purpura-imperial);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    }
 
-        .blog-tag {
-            display: inline-block;
-            background: var(--condado-purpura-imperial);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-            align-self: flex-start;
-        }
+    .blog-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--condado-negro-carbon);
+    }
 
-        .blog-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--condado-negro-carbon);
-        }
+    .blog-excerpt {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    flex-grow: 1;
+    }
 
-        .blog-excerpt {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
+    .read-more {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--condado-rojo-sangre);
+    font-weight: bold;
+    transition: color 0.3s;
+    align-self: flex-end;
+    }
 
-        .read-more {
-            display: inline-block;
-            text-decoration: none;
-            color: var(--condado-rojo-sangre);
-            font-weight: bold;
-            transition: color 0.3s;
-            align-self: flex-end;
-        }
+    .read-more:hover {
+    color: var(--condado-purpura-imperial);
+    }
 
-        .read-more:hover {
-            color: var(--condado-purpura-imperial);
-        }
-
-        .read-more i {
-            margin-left: 5px;
-        }
+    .read-more i {
+    margin-left: 5px;
+    }
     </style>
 </head>
 
