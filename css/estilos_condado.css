@@ -49,22 +49,6 @@
   /* Typography */
   --font-heading: 'Cinzel', serif;
   --font-body: 'Lora', serif;
-}
-
-/* Dark Mode Overrides */
-body.dark-mode {
-  --condado-texto: #e0d8c0;
-  /* Parchment text */
-  --condado-fondo-base: #2d1b15;
-  /* Dark leather base */
-
-  --bg-texture: url('../assets/img/bg-old-book.png');
-  --bg-blend: overlay;
-
-  --glass-bg: rgba(0, 0, 0, 0.5);
-  /* More transparent dark glass */
-  --glass-border: rgba(255, 215, 0, 0.4);
-  /* Glowing gold border */
 
   --shadow-3d:
     0 1px 0 #1a0f0b,
