@@ -1,283 +1,106 @@
-<!DOCTYPE html>
-<html lang="es">
+<h1>Cronograma Histórico</h1>
+<p>El Viaje de Cerezo a través de los Siglos</p>
+</header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronograma Histórico - Cerezo de Río Tirón</title>
-    <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .timeline-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/img/vault/roman_map.png');
-            background-size: cover;
-            background-position: center;
-            color: var(--condado-blanco-alabastro);
-            padding: 120px 20px 80px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .timeline-hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .timeline-container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 20px;
-            position: relative;
-        }
-
-        /* The central line */
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--condado-oro-viejo);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-            box-sizing: border-box;
-            opacity: 0;
-            /* Hidden initially for animation */
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -17px;
-            background-color: var(--condado-blanco-alabastro);
-            border: 4px solid var(--condado-purpura-imperial);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid white;
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent var(--condado-blanco-alabastro);
-        }
-
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid white;
-            border-width: 10px 10px 10px 0;
-            border-color: transparent var(--condado-blanco-alabastro) transparent transparent;
-        }
-
-        .right::after {
-            left: -16px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: var(--condado-blanco-alabastro);
-            position: relative;
-            border-radius: 6px;
-            border: 1px solid var(--condado-oro-viejo);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .timeline-date {
-            color: var(--condado-rojo-sangre);
-            font-weight: bold;
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .timeline-content h2 {
-            margin-top: 0;
-            color: var(--condado-purpura-imperial);
-            font-family: 'Cinzel', serif;
-        }
-
-        .timeline-content p {
-            margin-bottom: 0;
-            line-height: 1.6;
-        }
-
-        @media screen and (max-width: 600px) {
-            .timeline-container::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item::before {
-                left: 60px;
-                border: medium solid white;
-                border-width: 10px 10px 10px 0;
-                border-color: transparent white transparent transparent;
-            }
-
-            .left::after,
-            .right::after {
-                left: 15px;
-            }
-
-            .right {
-                left: 0%;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <div id="header-placeholder"></div>
-
-    <header class="timeline-hero">
-        <h1>Cronograma Histórico</h1>
-        <p>El Viaje de Cerezo a través de los Siglos</p>
-    </header>
-
-    <div class="timeline-container">
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <span class="timeline-date">Siglo I a.C.</span>
-                <h2>Fundación de Auca Patricia</h2>
-                <p>Tras las Guerras Cántabras, Roma establece la Civitate Auca Patricia como capital administrativa y
-                    militar de la región, controlando la vía Italia in Hispaniam.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <span class="timeline-date">347 d.C.</span>
-                <h2>Nacimiento de Teodosio</h2>
-                <p>Nace Flavio Teodosio (El Grande), vinculado familiarmente a la aristocracia militar de Auca.
-                    Posteriormente sería el último emperador de Roma unificada.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <span class="timeline-date">c. 700 d.C.</span>
-                <h2>El Alcázar de Cerasio</h2>
-                <p>El Conde Casio construye una monumental fortaleza-palacio sobre las ruinas romanas, utilizando
-                    alabastro local. Nace el "Castrum Cassius".</p>
-            </div>
-        </div>
-
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <span class="timeline-date">800-850 d.C.</span>
-                <h2>Martirio de San Vitores</h2>
-                <p>Resistencia cristiana local. San Vitores es martirizado en el antiguo circo romano (Quintanilleja),
-                    convirtiéndose en patrón eterno de la villa.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <span class="timeline-date">860 d.C.</span>
-                <h2>Rodrigo, Primer Conde</h2>
-                <p>El rey Ordoño I nombra a Rodrigo primer Conde de Castilla. Establece su base de operaciones en el
-                    inexpugnable Alcázar de Cerasio.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <span class="timeline-date">884 d.C.</span>
-                <h2>Fundación de Burgos</h2>
-                <p>Diego Rodríguez Porcelos, hijo de Rodrigo, funda Burgos como avanzada defensiva, aunque mantiene su
-                    poder en el eje Cerezo-Lantarón.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item left">
-            <div class="timeline-content">
-                <span class="timeline-date">931 d.C.</span>
-                <h2>Unificación con Fernán González</h2>
-                <p>Fernán González unifica los condados de Lara, Burgos, Cerezo, Lantarón y Álava, forjando la
-                    independencia de facto de Castilla.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item right">
-            <div class="timeline-content">
-                <span class="timeline-date">1151 d.C.</span>
-                <h2>Fuero de Alfonso VII</h2>
-                <p>El Emperador Alfonso VII otorga fueros a la villa, reconociendo su importancia estratégica y
-                    territorial, privilegios confirmados luego por Alfonso VIII.</p>
-            </div>
+<div class="timeline-container">
+    <div class="timeline-item left">
+        <div class="timeline-content">
+            <span class="timeline-date">Siglo I a.C.</span>
+            <h2>Fundación de Auca Patricia</h2>
+            <p>Tras las Guerras Cántabras, Roma establece la Civitate Auca Patricia como capital administrativa y
+                militar de la región, controlando la vía Italia in Hispaniam.</p>
         </div>
     </div>
 
-    <div id="footer-placeholder"></div>
-    <script src="js/layout.js"></script>
-    <script>
-        // Scroll Animation Script
-        document.addEventListener('DOMContentLoaded', function () {
-            const items = document.querySelectorAll('.timeline-item');
+    <div class="timeline-item right">
+        <div class="timeline-content">
+            <span class="timeline-date">347 d.C.</span>
+            <h2>Nacimiento de Teodosio</h2>
+            <p>Nace Flavio Teodosio (El Grande), vinculado familiarmente a la aristocracia militar de Auca.
+                Posteriormente sería el último emperador de Roma unificada.</p>
+        </div>
+    </div>
 
-            const checkScroll = () => {
-                const triggerBottom = window.innerHeight / 5 * 4;
+    <div class="timeline-item left">
+        <div class="timeline-content">
+            <span class="timeline-date">c. 700 d.C.</span>
+            <h2>El Alcázar de Cerasio</h2>
+            <p>El Conde Casio construye una monumental fortaleza-palacio sobre las ruinas romanas, utilizando
+                alabastro local. Nace el "Castrum Cassius".</p>
+        </div>
+    </div>
 
-                items.forEach(item => {
-                    const itemTop = item.getBoundingClientRect().top;
+    <div class="timeline-item right">
+        <div class="timeline-content">
+            <span class="timeline-date">800-850 d.C.</span>
+            <h2>Martirio de San Vitores</h2>
+            <p>Resistencia cristiana local. San Vitores es martirizado en el antiguo circo romano (Quintanilleja),
+                convirtiéndose en patrón eterno de la villa.</p>
+        </div>
+    </div>
 
-                    if (itemTop < triggerBottom) {
-                        item.classList.add('visible');
-                    } else {
-                        item.classList.remove('visible');
-                    }
-                });
-            };
+    <div class="timeline-item left">
+        <div class="timeline-content">
+            <span class="timeline-date">860 d.C.</span>
+            <h2>Rodrigo, Primer Conde</h2>
+            <p>El rey Ordoño I nombra a Rodrigo primer Conde de Castilla. Establece su base de operaciones en el
+                inexpugnable Alcázar de Cerasio.</p>
+        </div>
+    </div>
 
-            window.addEventListener('scroll', checkScroll);
-            checkScroll(); // Initial check
-        });
-    </script>
+    <div class="timeline-item right">
+        <div class="timeline-content">
+            <span class="timeline-date">884 d.C.</span>
+            <h2>Fundación de Burgos</h2>
+            <p>Diego Rodríguez Porcelos, hijo de Rodrigo, funda Burgos como avanzada defensiva, aunque mantiene su
+                poder en el eje Cerezo-Lantarón.</p>
+        </div>
+    </div>
+
+    <div class="timeline-item left">
+        <div class="timeline-content">
+            <span class="timeline-date">931 d.C.</span>
+            <h2>Unificación con Fernán González</h2>
+            <p>Fernán González unifica los condados de Lara, Burgos, Cerezo, Lantarón y Álava, forjando la
+                independencia de facto de Castilla.</p>
+        </div>
+    </div>
+
+    <div class="timeline-item right">
+        <div class="timeline-content">
+            <span class="timeline-date">1151 d.C.</span>
+            <h2>Fuero de Alfonso VII</h2>
+            <p>El Emperador Alfonso VII otorga fueros a la villa, reconociendo su importancia estratégica y
+                territorial, privilegios confirmados luego por Alfonso VIII.</p>
+        </div>
+    </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/layout.js"></script>
+<script>
+    // Scroll Animation Script
+    document.addEventListener('DOMContentLoaded', function () {
+        const items = document.querySelectorAll('.timeline-item');
+
+        const checkScroll = () => {
+            const triggerBottom = window.innerHeight / 5 * 4;
+
+            items.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+
+                if (itemTop < triggerBottom) {
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Initial check
+    });
+</script>
 </body>
 
 </html>
