@@ -1,109 +1,6 @@
 @import url('imperial_components.css');
 
 /* 
-   Condado de Castilla - Imperial Metamorphosis 2025
-   Design: Imperial Purple & Old Gold | Alabaster & Old Book Textures
-   Features: Glassmorphism, 3D Shadows, Interactive Lights, Responsive
-*/
-
-/* --- 1. Variables & Reset --- */
-:root {
-  --condado-primario: #4a0d67;
-  /* Deep Imperial Purple */
-  --condado-primario-rgb: 74, 13, 103;
-  --condado-secundario: #b8860b;
-  /* Old Gold */
-  --condado-acento: #ffd700;
-  /* Bright Gold */
-  --condado-fondo: #f2f0e6;
-  /* Alabaster / Parchment */
-  --condado-texto: #2c1d12;
-  /* Dark Brown Ink */
-  --condado-fondo-base: #1a1a1a;
-  /* Neutral dark gray */
-  --bg-texture: none;
-  /* Remove texture for cleaner look */
-  --bg-blend: normal;
-
-  /* Textures */
-  --textura-pergamino: url('../assets/img/bg_pergamino_nuevo.png');
-  --textura-marmol: url('../assets/img/bg_alabastro.png');
-  
-  /* Glassmorphism - Hyper-Imperial Update */
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  /* Crystal Clear */
-  --glass-border: 1px solid rgba(255, 215, 0, 0.15);
-  /* Subtle Gold Border */
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-  --glass-blur: blur(12px);
-
-  /* Shadows - 3D Depth */
-  --shadow-3d:
-    0 10px 20px rgba(0, 0, 0, 0.1),
-    0 6px 6px rgba(0, 0, 0, 0.1),
-    0 0 100px rgba(184, 134, 11, 0.1);
-  /* Ambient Gold Glow */
-
-  --shadow-soft: 0 15px 35px rgba(74, 13, 103, 0.2);
-  --glow-gold: 0 0 20px rgba(255, 215, 0, 0.7), 0 0 40px rgba(255, 215, 0, 0.3);
-  --glow-active: 0 0 25px var(--condado-acento), 0 0 50px var(--condado-acento);
-
-  /* Typography */
-  --font-heading: 'Cinzel', serif;
-  --font-body: 'Lora', serif;
-}
-
-/* Dark Mode Overrides */
-body.dark-mode {
-  --condado-texto: #e0d8c0;
-  --condado-fondo-base: #1a1a1a;
-  --bg-texture: none;
-  --bg-blend: normal;
-
-  --glass-bg: rgba(0, 0, 0, 0.5);
-  --glass-border: rgba(255, 215, 0, 0.4);
-
-  --shadow-3d:
-    0 1px 0 #1a0f0b,
-    0 2px 0 #160d09,
-    0 3px 0 #110a07,
-    0 4px 0 #0d0805,
-    0 5px 0 #080503,
-    0 6px 1px rgba(0, 0, 0, .5),
-    0 0 5px rgba(0, 0, 0, .5),
-    0 1px 3px rgba(0, 0, 0, .7),
-    0 3px 5px rgba(0, 0, 0, .6),
-    0 5px 10px rgba(0, 0, 0, .5),
-    0 10px 10px rgba(0, 0, 0, .4),
-    0 20px 20px rgba(0, 0, 0, .3),
-    0 30px 50px rgba(0, 0, 0, 0.6);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--condado-fondo-base);
-  background-image: var(--bg-texture);
-  background-size: cover;
-  background-attachment: fixed;
-  background-blend-mode: var(--bg-blend);
-  color: var(--condado-texto);
-  line-height: 1.6;
-  overflow-x: hidden;
-  min-height: 100vh;
-  display: flex;
   flex-direction: column;
   align-items: center;
   transition: background 0.5s ease, color 0.5s ease;
@@ -293,11 +190,25 @@ body.dark-mode .sidebar {
 }
 
 /* Staggered animation for links - simplified loop */
-.sidebar.sidebar-visible .nav-links li:nth-child(1) { transition-delay: 0.1s; }
-.sidebar.sidebar-visible .nav-links li:nth-child(2) { transition-delay: 0.15s; }
-.sidebar.sidebar-visible .nav-links li:nth-child(3) { transition-delay: 0.2s; }
-.sidebar.sidebar-visible .nav-links li:nth-child(4) { transition-delay: 0.25s; }
-.sidebar.sidebar-visible .nav-links li:nth-child(5) { transition-delay: 0.3s; }
+.sidebar.sidebar-visible .nav-links li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.sidebar.sidebar-visible .nav-links li:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.sidebar.sidebar-visible .nav-links li:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.sidebar.sidebar-visible .nav-links li:nth-child(4) {
+  transition-delay: 0.25s;
+}
+
+.sidebar.sidebar-visible .nav-links li:nth-child(5) {
+  transition-delay: 0.3s;
+}
 
 .nav-links a {
   color: #e0d8c0;
@@ -415,9 +326,17 @@ body.dark-mode .hero-content {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .hero h1 {
@@ -441,7 +360,7 @@ body.dark-mode .hero h1 {
 .hero-title {
   font-size: 4.5rem;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
