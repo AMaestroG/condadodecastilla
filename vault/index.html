@@ -1,267 +1,125 @@
 <!DOCTYPE html>
-<html lang="es">
+<div class="vault-header">
+    <h1 class="vault-title">🏛️ Cerezo de Río Tirón: La Verdadera Auca Patricia</h1>
+    <div class="vault-meta">
+        <span><i class="fas fa-tag"></i> Historia, Arqueología, Roma</span> |
+        <span><i class="fas fa-calendar"></i> Actualizado: 2025</span>
+    </div>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bóveda Histórica - Cerezo de Río Tirón</title>
-    <link rel="stylesheet" href="../assets/css/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({ startOnLoad: true });</script>
-    <style>
-        .vault-container {
-            max-width: 900px;
-            margin: 120px auto 60px;
-            padding: 40px;
-            background-color: var(--condado-blanco-alabastro);
-            border: 1px solid var(--condado-oro-viejo);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            font-family: 'Crimson Text', serif;
-            /* A more "document" feel */
-        }
-
-        .vault-header {
-            border-bottom: 2px solid var(--condado-purpura-imperial);
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-        }
-
-        .vault-title {
-            color: var(--condado-purpura-imperial);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .vault-meta {
-            font-family: 'Cinzel', serif;
-            color: var(--condado-oro-viejo);
-            font-size: 0.9rem;
-        }
-
-        .callout {
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 5px solid;
-            background-color: rgba(0, 0, 0, 0.03);
-            border-radius: 0 5px 5px 0;
-        }
-
-        .callout-abstract {
-            border-color: #00b8d4;
-            background-color: rgba(0, 184, 212, 0.1);
-        }
-
-        .callout-info {
-            border-color: #3e8e41;
-            background-color: rgba(62, 142, 65, 0.1);
-        }
-
-        .callout-quote {
-            border-color: #9e9e9e;
-            font-style: italic;
-        }
-
-        .callout-warning {
-            border-color: #ff9800;
-            background-color: rgba(255, 152, 0, 0.1);
-        }
-
-        .callout-tip {
-            border-color: #673ab7;
-            background-color: rgba(103, 58, 183, 0.1);
-        }
-
-        .vault-content h2 {
-            color: var(--condado-rojo-sangre);
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-
-        .vault-content h3 {
-            color: var(--condado-negro-carbon);
-            margin-top: 25px;
-        }
-
-        .wikilink {
-            color: var(--condado-purpura-imperial);
-            text-decoration: none;
-            border-bottom: 1px dotted var(--condado-purpura-imperial);
-            transition: all 0.3s;
-        }
-
-        .wikilink:hover {
-            background-color: rgba(75, 0, 130, 0.1);
-            border-bottom-style: solid;
-        }
-
-        .mermaid {
-            background: #f9f9f9;
-            border: 1px dashed #ccc;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .download-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: var(--condado-purpura-imperial);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .download-btn:hover {
-            background-color: var(--condado-rojo-sangre);
-        }
-
-        .vault-img {
-            width: 100%;
-            border-radius: 8px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .coin-img {
-            float: right;
-            width: 120px;
-            margin-left: 20px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-    </style>
-</head>
-
-<body>
-    <div id="header-placeholder"></div>
-
-    <div class="vault-container">
-        <div class="vault-header">
-            <h1 class="vault-title">🏛️ Cerezo de Río Tirón: La Verdadera Auca Patricia</h1>
-            <div class="vault-meta">
-                <span><i class="fas fa-tag"></i> Historia, Arqueología, Roma</span> |
-                <span><i class="fas fa-calendar"></i> Actualizado: 2025</span>
-            </div>
-        </div>
-
-        <div class="vault-content">
-            <div class="callout callout-abstract">
-                <strong>📜 Tesis Central</strong><br>
-                Cerezo de Río Tirón no es solo un pueblo con encanto; es la ubicación histórica de la <strong>Civitate
-                    Auca Patricia</strong>, capital de la Cantabria romana y visigoda. Aquí, sobre las ruinas de una
-                monumental ciudad romana, se erigió el <strong>Alcázar de Cerasio</strong>, el verdadero origen del
-                <strong>Condado de Castilla</strong> y cuna del idioma castellano.
-            </div>
-
-            <div class="mermaid">
-                graph TD
-                A[Cerezo de Río Tirón] -->|Es| B(Civitate Auca Patricia)
-                B -->|Capital de| C[Cantabria y Vardulias]
-                B -->|Ruinas base para| D[Alcázar de Cerasio]
-                D -->|Sede de| E[Primeros Condes de Castilla]
-                E -->|Origen de| F[Reino de Castilla]
-                A -->|Alfoz incluye| G[Valpuesta]
-                G -->|Cuna del| H[Idioma Castellano]
-            </div>
-
-            <h2>⚔️ La Huella Romana: Auca Patricia</h2>
-            <img src="../assets/img/vault/auca_patricia.png" alt="Reconstrucción de Auca Patricia" class="vault-img">
-            <p>La evidencia arqueológica y toponímica sugiere que Cerezo de Río Tirón alberga una ciudad romana de
-                dimensiones imperiales, oculta bajo "metro y medio de polvo de miles de años".</p>
-
-            <h3>🏙️ La Ciudad y el Campamento</h3>
-            <ul>
-                <li><strong>Decumanus y Cardo</strong>: Ejes viarios de <strong>1200 metros</strong> de longitud.</li>
-                <li><strong>Campamento Legionario</strong>: En el término de <em>La Tejera</em>, se observan torres
-                    torcidas y restos de un campamento de piedra.</li>
-                <li><strong>Murallas y Fosos</strong>: El <em>Paseo de la Cárcaba</em> y el río <em>Vallúm</em> (hoy San
-                    García) actuaban como muralla natural.</li>
-            </ul>
-
-            <div class="callout callout-info">
-                <strong>ℹ️ Dato Arqueológico</strong><br>
-                <img src="../assets/img/vault/roman_coin.png" alt="Moneda Romana" class="coin-img">
-                Las monedas romanas halladas en la zona muestran una puerta de campamento romano con una estrella
-                arriba. Curiosamente, el escudo de Cerezo conserva esta misma estrella sobre un castillo/torre.
-                ¿Coincidencia o memoria histórica?
-                <div style="clear:both;"></div>
-            </div>
-
-            <h3>⚓ El Puerto Fluvial del Ebro</h3>
-            <img src="../assets/img/vault/roman_map.png" alt="Mapa Romano de Cerezo" class="vault-img">
-            <p>Cerezo habría sido el <strong>último puerto fluvial navegable del Río Ebro</strong> en la antigüedad,
-                situado en el <em>Gurugú de Segisamam</em>. Era la vía de entrada para las legiones romanas desde el
-                Mediterráneo.</p>
-
-            <h3>👑 Cuna de Emperadores Hispanos</h3>
-            <p>La tradición vincula a Auca con el nacimiento de tres emperadores romanos emparentados:</p>
-            <ol>
-                <li><a href="#" class="wikilink">Teodosio I el Grande</a></li>
-                <li><a href="#" class="wikilink">Magno Clemente Máximo</a></li>
-                <li><a href="#" class="wikilink">Flavio Víctor</a></li>
-            </ol>
-
-            <h2>🏰 La Era Visigoda y el Nacimiento de Castilla</h2>
-            <img src="../assets/img/vault/alcazar_cerasio.png" alt="Alcázar de Cerasio" class="vault-img">
-            <p>Sobre las ruinas de Auca Patricia se erigió el <strong>Alcázar de Cerasio</strong>, sede de los primeros
-                Condes. Fue una fortaleza inexpugnable de alabastro puro.</p>
-
-            <h3>📜 Los Primeros Condes</h3>
-            <p>Desde este Alcázar gobernaron figuras clave:</p>
-            <ul>
-                <li><a href="#" class="wikilink">Rodrigo (Conde de Castilla)</a>: Primer Conde, con base en el Alcázar.
-                </li>
-                <li><a href="#" class="wikilink">Diego Rodríguez Porcelos</a>: Fundador de Burgos, pero operaba desde
-                    Cerezo.</li>
-                <li><a href="#" class="wikilink">Gonzalo Téllez</a>: Conde de Cerezo y Lantarón, restaurador de Osma.
-                </li>
-                <li><a href="#" class="wikilink">Fernán González</a>: Unificó los títulos, comenzando como Conde de Lara
-                    y Cerezo.</li>
-            </ul>
-
-            <div class="mermaid">
-                timeline
-                title Línea de Tiempo: De Auca a Castilla
-                Siglo I : Fundación Auca Patricia : Vía Italia in Hispaniam
-                Siglo IV : Nacimiento Teodosio : Nacimiento Magno Máximo
-                Siglo V : Invasiones Bárbaras : Resistencia Visigoda
-                Siglo VIII : Invasión Musulmana : Martirio San Vitores
-                860 : Rodrigo, Primer Conde : Alcázar de Cerasio
-                884 : Fundación de Burgos : Porcelos desde Cerezo
-                931 : Fernán González : Unificación Condados
-            </div>
-
-            <div class="callout callout-warning">
-                <strong>⚠️ Controversia Histórica</strong><br>
-                La historia oficial sitúa a menudo el centro de poder en Burgos. Sin embargo, Cerezo y Lantarón aparecen
-                como condados primigenios con una sede episcopal (San Martín) mayor que la Catedral de Burgos.
-            </div>
-
-            <h2>✝️ Leyendas y Religión</h2>
-            <p>La historia sagrada se entrelaza con la militar a través de <a href="#" class="wikilink">San Vitores</a>,
-                <a href="#" class="wikilink">San Jorge</a> y el primitivo camino de <a href="#"
-                    class="wikilink">Santiago</a>.</p>
-
-            <hr>
-
-            <div class="callout callout-tip">
-                <strong>💡 Llamada a la Acción</strong><br>
-                Es hora de redescubrir la Auca Patricia, limpiar el polvo de la historia y reconocer en Cerezo el Origen
-                del Castellano.
-            </div>
-
-            <a href="index.md" class="download-btn" download><i class="fas fa-file-download"></i> Descargar Nota
-                Obsidian (.md)</a>
-        </div>
+<div class="vault-content">
+    <div class="callout callout-abstract">
+        <strong>📜 Tesis Central</strong><br>
+        Cerezo de Río Tirón no es solo un pueblo con encanto; es la ubicación histórica de la <strong>Civitate
+            Auca Patricia</strong>, capital de la Cantabria romana y visigoda. Aquí, sobre las ruinas de una
+        monumental ciudad romana, se erigió el <strong>Alcázar de Cerasio</strong>, el verdadero origen del
+        <strong>Condado de Castilla</strong> y cuna del idioma castellano.
     </div>
 
-    <div id="footer-placeholder"></div>
-    <script src="../js/layout.js"></script>
+    <div class="mermaid">
+        graph TD
+        A[Cerezo de Río Tirón] -->|Es| B(Civitate Auca Patricia)
+        B -->|Capital de| C[Cantabria y Vardulias]
+        B -->|Ruinas base para| D[Alcázar de Cerasio]
+        D -->|Sede de| E[Primeros Condes de Castilla]
+        E -->|Origen de| F[Reino de Castilla]
+        A -->|Alfoz incluye| G[Valpuesta]
+        G -->|Cuna del| H[Idioma Castellano]
+    </div>
+
+    <h2>⚔️ La Huella Romana: Auca Patricia</h2>
+    <img src="../assets/img/vault/auca_patricia.png" alt="Reconstrucción de Auca Patricia" class="vault-img">
+    <p>La evidencia arqueológica y toponímica sugiere que Cerezo de Río Tirón alberga una ciudad romana de
+        dimensiones imperiales, oculta bajo "metro y medio de polvo de miles de años".</p>
+
+    <h3>🏙️ La Ciudad y el Campamento</h3>
+    <ul>
+        <li><strong>Decumanus y Cardo</strong>: Ejes viarios de <strong>1200 metros</strong> de longitud.</li>
+        <li><strong>Campamento Legionario</strong>: En el término de <em>La Tejera</em>, se observan torres
+            torcidas y restos de un campamento de piedra.</li>
+        <li><strong>Murallas y Fosos</strong>: El <em>Paseo de la Cárcaba</em> y el río <em>Vallúm</em> (hoy San
+            García) actuaban como muralla natural.</li>
+    </ul>
+
+    <div class="callout callout-info">
+        <strong>ℹ️ Dato Arqueológico</strong><br>
+        <img src="../assets/img/vault/roman_coin.png" alt="Moneda Romana" class="coin-img">
+        Las monedas romanas halladas en la zona muestran una puerta de campamento romano con una estrella
+        arriba. Curiosamente, el escudo de Cerezo conserva esta misma estrella sobre un castillo/torre.
+        ¿Coincidencia o memoria histórica?
+        <div style="clear:both;"></div>
+    </div>
+
+    <h3>⚓ El Puerto Fluvial del Ebro</h3>
+    <img src="../assets/img/vault/roman_map.png" alt="Mapa Romano de Cerezo" class="vault-img">
+    <p>Cerezo habría sido el <strong>último puerto fluvial navegable del Río Ebro</strong> en la antigüedad,
+        situado en el <em>Gurugú de Segisamam</em>. Era la vía de entrada para las legiones romanas desde el
+        Mediterráneo.</p>
+
+    <h3>👑 Cuna de Emperadores Hispanos</h3>
+    <p>La tradición vincula a Auca con el nacimiento de tres emperadores romanos emparentados:</p>
+    <ol>
+        <li><a href="#" class="wikilink">Teodosio I el Grande</a></li>
+        <li><a href="#" class="wikilink">Magno Clemente Máximo</a></li>
+        <li><a href="#" class="wikilink">Flavio Víctor</a></li>
+    </ol>
+
+    <h2>🏰 La Era Visigoda y el Nacimiento de Castilla</h2>
+    <img src="../assets/img/vault/alcazar_cerasio.png" alt="Alcázar de Cerasio" class="vault-img">
+    <p>Sobre las ruinas de Auca Patricia se erigió el <strong>Alcázar de Cerasio</strong>, sede de los primeros
+        Condes. Fue una fortaleza inexpugnable de alabastro puro.</p>
+
+    <h3>📜 Los Primeros Condes</h3>
+    <p>Desde este Alcázar gobernaron figuras clave:</p>
+    <ul>
+        <li><a href="#" class="wikilink">Rodrigo (Conde de Castilla)</a>: Primer Conde, con base en el Alcázar.
+        </li>
+        <li><a href="#" class="wikilink">Diego Rodríguez Porcelos</a>: Fundador de Burgos, pero operaba desde
+            Cerezo.</li>
+        <li><a href="#" class="wikilink">Gonzalo Téllez</a>: Conde de Cerezo y Lantarón, restaurador de Osma.
+        </li>
+        <li><a href="#" class="wikilink">Fernán González</a>: Unificó los títulos, comenzando como Conde de Lara
+            y Cerezo.</li>
+    </ul>
+
+    <div class="mermaid">
+        timeline
+        title Línea de Tiempo: De Auca a Castilla
+        Siglo I : Fundación Auca Patricia : Vía Italia in Hispaniam
+        Siglo IV : Nacimiento Teodosio : Nacimiento Magno Máximo
+        Siglo V : Invasiones Bárbaras : Resistencia Visigoda
+        Siglo VIII : Invasión Musulmana : Martirio San Vitores
+        860 : Rodrigo, Primer Conde : Alcázar de Cerasio
+        884 : Fundación de Burgos : Porcelos desde Cerezo
+        931 : Fernán González : Unificación Condados
+    </div>
+
+    <div class="callout callout-warning">
+        <strong>⚠️ Controversia Histórica</strong><br>
+        La historia oficial sitúa a menudo el centro de poder en Burgos. Sin embargo, Cerezo y Lantarón aparecen
+        como condados primigenios con una sede episcopal (San Martín) mayor que la Catedral de Burgos.
+    </div>
+
+    <h2>✝️ Leyendas y Religión</h2>
+    <p>La historia sagrada se entrelaza con la militar a través de <a href="#" class="wikilink">San Vitores</a>,
+        <a href="#" class="wikilink">San Jorge</a> y el primitivo camino de <a href="#" class="wikilink">Santiago</a>.
+    </p>
+
+    <hr>
+
+    <div class="callout callout-tip">
+        <strong>💡 Llamada a la Acción</strong><br>
+        Es hora de redescubrir la Auca Patricia, limpiar el polvo de la historia y reconocer en Cerezo el Origen
+        del Castellano.
+    </div>
+
+    <a href="index.md" class="download-btn" download><i class="fas fa-file-download"></i> Descargar Nota
+        Obsidian (.md)</a>
+</div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="../js/layout.js"></script>
 </body>
 
 </html>
