@@ -282,7 +282,7 @@ function initializeScrollButton() {
 
 // Scroll Reveal
 function initializeScrollReveal() {
-    const sections = document.querySelectorAll('.section');
+    const elements = document.querySelectorAll('.section, .scroll-reveal');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -292,7 +292,7 @@ function initializeScrollReveal() {
         });
     }, { threshold: 0.1 });
 
-    sections.forEach(section => observer.observe(section));
+    elements.forEach(el => observer.observe(el));
 }
 
 // Card Hover Effects
