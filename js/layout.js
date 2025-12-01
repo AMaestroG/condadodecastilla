@@ -87,7 +87,95 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeScrollButton();
     initializeScrollReveal();
     initializeCardHoverEffects();
+
+    // Project 2026: Core Experience
+    initializeSmoothScroll();
+    initializeScrollProgress();
+    initialize3DTilt();
 });
+
+// --- Project 2026: Core Experience Functions ---
+
+// Smooth Scroll (Momentum-based)
+function initializeSmoothScroll() {
+    // Simple momentum scrolling implementation
+    const body = document.body;
+    const main = document.querySelector('main') || body;
+
+    let current = 0;
+    let target = 0;
+    let ease = 0.075;
+
+    // Only active on desktop for performance and UX
+    if (window.innerWidth > 768) {
+        // We'll use a native-friendly approach: just smooth behavior for anchors
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // For the "heavy" momentum feel, we would need a full virtual scroller
+        // But for a "Best of 2026" native feel, we stick to CSS smooth + 
+        // custom parallax which gives the illusion of depth.
+
+        // Let's add the Parallax Zoom here as it ties to scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroBg = document.querySelector('.hero');
+            if (heroBg) {
+                // Parallax Zoom Effect
+                heroBg.style.backgroundSize = `${100 + (scrolled * 0.05)}%`;
+                heroBg.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+            }
+        });
+    }
+}
+
+// Scroll Progress Indicator
+function initializeScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress-bar';
+    Object.assign(progressBar.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        height: '4px',
+        background: 'var(--condado-gold-gradient)',
+        zIndex: '10000',
+        width: '0%',
+        transition: 'width 0.1s ease-out'
+    });
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+    });
+}
+
+// 3D Tilt Effect for Cards
+function initialize3DTilt() {
+    const cards = document.querySelectorAll('.imperial-card, .chrono-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
+            const rotateY = ((x - centerX) / centerX) * 5;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    });
+}
 
 // Sidebar Navigation
 function initializeSidebarNavigation() {
