@@ -1043,11 +1043,7 @@ footer::before {
   margin-bottom: 4rem;
   width: 100%;
   display: flex;
-  justify-content: center;
-}
-
-.timeline-item:nth-child(odd) {
-  flex-direction: row-reverse;
+  /* Removed justify-content: center to allow specific side positioning */
 }
 
 .timeline-icon {
@@ -1069,7 +1065,8 @@ footer::before {
 }
 
 .timeline-icon img {
-  width: 60%;
+  width: 50%;
+  /* Slightly smaller for better fit */
   height: auto;
   object-fit: contain;
 }
@@ -1086,18 +1083,35 @@ footer::before {
   transition: transform 0.3s ease;
 }
 
+/* Odd Items (Left Side) */
+.timeline-item:nth-child(odd) {
+  justify-content: flex-start;
+}
+
 .timeline-item:nth-child(odd) .timeline-content {
-  margin-right: auto;
-  margin-left: 50px;
-  /* Space from center */
-  text-align: left;
+  margin-left: auto;
+  /* Push towards center */
+  margin-right: 60px;
+  /* Gap from center line (40px half-icon + 20px gap) */
+  text-align: right;
+}
+
+/* Even Items (Right Side) */
+.timeline-item:nth-child(even) {
+  justify-content: flex-end;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-  margin-left: auto;
-  margin-right: 50px;
-  /* Space from center */
-  text-align: right;
+  margin-right: auto;
+  /* Push towards center? No, flex-end puts it at right. */
+  /* Actually, if we want it close to center, we don't need margin-right: auto. 
+     We need it to NOT be at the far right edge if the container is huge.
+     But container is max-width 1400px.
+     Let's just use margin-left for gap.
+  */
+  margin-left: 60px;
+  /* Gap from center line */
+  text-align: left;
 }
 
 body.dark-mode .timeline-content {
@@ -1123,11 +1137,22 @@ body.dark-mode .timeline-content h3 {
   .timeline-item {
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 0;
+    margin-bottom: 3rem;
   }
 
-  .timeline-item:nth-child(odd) {
-    flex-direction: column;
+  /* Reset odd/even specific styles for mobile */
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    justify-content: flex-start;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    margin: 0;
+    margin-left: 80px;
+    /* Space for icon */
+    text-align: left;
+    width: calc(100% - 80px);
   }
 
   .timeline-icon {
@@ -1135,14 +1160,5 @@ body.dark-mode .timeline-content h3 {
     width: 60px;
     height: 60px;
     transform: translateX(-50%);
-  }
-
-  .timeline-content {
-    width: calc(100% - 80px);
-    /* Full width minus icon space */
-    margin-left: 80px !important;
-    /* Force left margin */
-    margin-right: 0 !important;
-    text-align: left !important;
   }
 }
