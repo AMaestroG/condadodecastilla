@@ -7,15 +7,39 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            const html = await response.text();
+            let html = await response.text();
+
+            // Fix relative paths in the loaded fragment
+            if (root) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+
+                // Fix links
+                const links = doc.querySelectorAll('a[href]');
+                links.forEach(a => {
+                    const href = a.getAttribute('href');
+                    // Skip absolute URLs, protocol-relative URLs, anchors, mailto, and root-relative paths
+                    if (href && !href.match(/^(http|\/\/|#|mailto:|\/)/)) {
+                        a.setAttribute('href', root + href);
+                    }
+                });
+
+                // Fix images
+                const images = doc.querySelectorAll('img[src]');
+                images.forEach(img => {
+                    const src = img.getAttribute('src');
+                    if (src && !src.match(/^(http|\/\/|data:|\/)/)) {
+                        img.setAttribute('src', root + src);
+                    }
+                });
+
+                // Get the modified HTML (body content)
+                html = doc.body.innerHTML;
+            }
+
             const element = document.getElementById(elementId);
             if (element) {
                 element.innerHTML = html;
-
-                // Fix relative paths in the loaded fragment
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                // (Optional: logic to fix paths if needed, but usually siteRoot handles it)
 
                 // Re-initialize scripts/components for the fragment
                 if (elementId === 'header-placeholder') {
