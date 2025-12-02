@@ -1190,3 +1190,133 @@ body.dark-mode .town-card-link {
   border-color: var(--condado-acento);
   color: var(--condado-acento);
 }
+
+/* =========================================
+   13. Theme Switcher Styles
+   ========================================= */
+
+/* Theme Menu */
+.theme-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--condado-secundario);
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10001;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.theme-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+body.dark-mode .theme-menu {
+  background: rgba(20, 10, 5, 0.95);
+  border-color: var(--condado-acento);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: var(--condado-primario);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+}
+
+body.dark-mode .theme-option {
+  color: var(--condado-acento);
+}
+
+.theme-option:hover {
+  background: rgba(184, 134, 11, 0.1);
+  border-color: var(--condado-secundario);
+}
+
+.theme-preview {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--condado-secundario);
+  background-size: cover;
+}
+
+/* Theme Classes */
+
+/* 1. Mármol Negro */
+body.theme-marmol-negro {
+  background-image: url('../assets/img/bg_marmol_negro.png');
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  --condado-texto-principal: #e0e0e0;
+}
+
+body.theme-marmol-negro .imperial-card,
+body.theme-marmol-negro .imperial-frame {
+  background: rgba(0, 0, 0, 0.7);
+  border-color: #a0a0a0;
+}
+
+body.theme-marmol-negro h1,
+body.theme-marmol-negro h2,
+body.theme-marmol-negro h3 {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* 2. Pergamino Oscuro */
+body.theme-pergamino-oscuro {
+  background-image: url('../assets/img/bg_pergamino_oscuro.png');
+  background-color: #2c1e12;
+  color: #f0e6d2;
+  --condado-texto-principal: #f0e6d2;
+}
+
+body.theme-pergamino-oscuro .imperial-card,
+body.theme-pergamino-oscuro .imperial-frame {
+  background: rgba(44, 30, 18, 0.8);
+  border-color: var(--condado-oro-viejo);
+}
+
+/* 3. Pergamino Clásico */
+body.theme-pergamino {
+  background-image: url('../assets/img/bg_pergamino.png');
+  background-color: #fdfbf7;
+  color: #2e0840;
+}
+
+/* 4. Dark Imperial */
+body.theme-imperial-dark {
+  background-image: url('../assets/img/bg-dark-imperial.png');
+  background-color: #1a0525;
+  color: #e0d8c0;
+}
+
+/* 5. Libro Antiguo */
+body.theme-libro-antiguo {
+  background-image: url('../assets/img/bg-old-book.png');
+  background-color: #3e2723;
+  color: #efebe9;
+}
+
+body.theme-libro-antiguo .imperial-card {
+  background: rgba(62, 39, 35, 0.85);
+  border-color: #d7ccc8;
+}
