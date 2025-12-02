@@ -60,10 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Load Header and Footer
-    const headerPath = `${root}fragments/header.html`; // Assuming fragments are in a 'fragments' folder or similar, but based on previous code it was _header.html
-    // Wait, previous code used root + '_header.html'. Let's stick to that to avoid breaking paths.
-    const headerUrl = `${root}_header.html`;
-    const footerUrl = `${root}_footer.html`;
+    const headerUrl = `${root}layout/_header.html`;
+    const footerUrl = `${root}layout/_footer.html`;
 
     Promise.all([
         loadFragment(headerUrl, 'header-placeholder'),
