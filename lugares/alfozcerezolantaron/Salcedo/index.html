@@ -1,46 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salcedo - Alfoz de Cerezo</title>
+    <title>Salcedo - Alfoz de Cerasio y Lantarón</title>
     <link rel="icon" href="../../../assets/img/escudo.jpg" type="image/jpeg">
+    <meta name="description"
+        content="Historia de Salcedo, cuna de linajes y monasterios en Lantarón. Fe y tradición en la Cuna de Castilla.">
+
+    <!-- Fonts & CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../../../css/estilos_condado.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/estilos_condado.css?v=2">
 </head>
+
 <body>
+    <!-- Navigation Header (Injected) -->
     <div id="header-placeholder"></div>
-    
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('../../../assets/img/hero_alfoz_background.jpg');">
-        <div class="hero-content">
-            <h1>Salcedo</h1>
-            <p>Integrante del histórico Alfoz de Cerezo y Lantarón</p>
+
+    <!-- Hero Section -->
+    <header class="hero parallax-hero"
+        style="background-image: linear-gradient(rgba(46, 8, 64, 0.7), rgba(26, 26, 26, 0.85)), url('../../../assets/img/hero_alfoz_background.jpg');">
+        <div class="hero-content scroll-reveal">
+            <h1 class="hero-title">Salcedo</h1>
+            <h2 class="hero-subtitle">El Valle de los Sauces</h2>
+            <p class="hero-text">Donde los antiguos linajes echaron raíces.</p>
         </div>
     </header>
 
     <main>
         <section class="section">
             <div class="container imperial-frame">
-                <p>Bienvenido al archivo del pueblo de <strong>Salcedo</strong>. Aquí encontrarás información histórica y cultural sobre esta localidad.</p>
-                <div class="alert-box" style="background-color: rgba(255, 215, 0, 0.1); border-left: 4px solid var(--condado-secundario); padding: 1em; margin: 1em 0;">
-                    <p><em>Esta sección está en construcción. Próximamente añadiremos más detalles.</em></p>
+                <h2 class="section-title">Historia y Legado</h2>
+
+                <div class="imperial-card">
+                    <h3>Monasterios y Linajes</h3>
+                    <p>
+                        <strong>Salcedo</strong>, en el municipio de Lantarón, es un lugar de profunda resonancia
+                        histórica. Su nombre, que significa "sauceda", está ligado a uno de los linajes más antiguos de
+                        la región, los Salcedo, escindidos de la casa de Ayala. Pero su historia va más allá de la
+                        nobleza: aquí existió el antiguo Monasterio de San Esteban, hoy desaparecido, sobre el que se
+                        alza la ermita de San Pedro.
+                    </p>
+                    <p>
+                        Integrado en el corazón del <strong>Condado de Lantarón</strong>, Salcedo fue testigo y
+                        protagonista de la formación de la frontera castellana, aportando líderes espirituales y
+                        militares a la causa del condado.
+                    </p>
                 </div>
-                <div class="town-navigation" style="display: flex; justify-content: space-between; align-items: center; margin-top: 2em; flex-wrap: wrap; gap: 1em;">
-                    <a href="../Revillagodos/index.html" class="cta-button prev-town" title="Ir a Revillagodos">← Revillagodos</a>
-                    <a href="../../../alfoz/alfoz.html" class="cta-button">Volver al Alfoz</a>
-                    <a href="../San_Emilianus/index.html" class="cta-button next-town" title="Ir a San Emilianus">San Emilianus →</a>
+
+                <div class="imperial-card" style="margin-top: 2rem;">
+                    <h3>Cuna de Castilla: Tradición Viva</h3>
+                    <p>
+                        En Salcedo, la <strong>Cuna de Castilla</strong> se mantiene viva en sus tradiciones. El
+                        Carnaval de Salcedo, con su peculiar personaje del "Porretero", es una muestra de un folclore
+                        ancestral que ha sobrevivido al paso de los siglos. Estas costumbres nos conectan con la vida de
+                        las comunidades medievales que poblaron estos valles.
+                    </p>
+                    <p>
+                        La conexión con el Ebro y los caminos que cruzaban Lantarón hizo de Salcedo un lugar de paso y
+                        asentamiento, donde la cultura vasca y castellana se entrelazaron desde el principio.
+                    </p>
+                </div>
+
+                <div class="imperial-card" style="margin-top: 2rem;">
+                    <h3>Patrimonio Religioso</h3>
+                    <p>
+                        La ermita de San Pedro, con su imagen románica y sus pinturas flamencas, es una joya que habla
+                        de la riqueza cultural de este pequeño concejo. Es un recordatorio de que incluso en las aldeas
+                        más pequeñas, el arte y la fe florecieron bajo la protección de los condes y señores.
+                    </p>
+                    <p>
+                        Salcedo es un testimonio de la persistencia de la identidad y la memoria en la tierra de los
+                        orígenes.
+                    </p>
+                </div>
+
+                <div class="text-center-my" style="margin-top: 3rem;">
+                    <a href="../alfoz.html" class="cta-button">Volver al Alfoz</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer (Injected) -->
     <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
     <script>window.siteRoot = '../../../';</script>
     <script src="../../../js/layout.js"></script>
 </body>
+
 </html>
-
-
