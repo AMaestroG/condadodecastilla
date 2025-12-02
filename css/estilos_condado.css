@@ -588,38 +588,23 @@ body.dark-mode .imperial-card {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.imperial-card:hover::before {
-  transform: scaleX(1);
-}
-
-/* Grid Layouts */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  width: 100%;
-}
-
-/* CTA Buttons */
-.cta-button,
-.read-more {
-  display: inline-block;
-  padding: 15px 40px;
-  background: transparent;
-  color: var(--condado-primario);
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 900;
-  font-family: var(--font-heading);
-  border: 2px solid var(--condado-primario);
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  margin-top: 1rem;
-  cursor: pointer;
+display: inline-block;
+padding: 15px 40px;
+background: transparent;
+color: var(--condado-primario);
+text-decoration: none;
+border-radius: 50px;
+font-weight: 900;
+font-family: var(--font-heading);
+border: 2px solid var(--condado-primario);
+transition: all 0.3s ease;
+text-transform: uppercase;
+letter-spacing: 2px;
+position: relative;
+overflow: hidden;
+z-index: 1;
+margin-top: 1rem;
+cursor: pointer;
 }
 
 body.dark-mode .cta-button,
