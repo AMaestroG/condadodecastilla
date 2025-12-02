@@ -1320,3 +1320,83 @@ body.theme-libro-antiguo .imperial-card {
   background: rgba(62, 39, 35, 0.85);
   border-color: #d7ccc8;
 }
+
+/* =========================================
+   14. Electric Frame & Mobile Optimizations
+   ========================================= */
+
+/* Electric Pulse Animation */
+@keyframes electric-pulse {
+  0% {
+    box-shadow: 0 0 5px var(--condado-acento), 0 0 10px var(--condado-secundario);
+    border-color: var(--condado-acento);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--condado-acento), 0 0 30px var(--condado-secundario);
+    border-color: #fff;
+  }
+
+  100% {
+    box-shadow: 0 0 5px var(--condado-acento), 0 0 10px var(--condado-secundario);
+    border-color: var(--condado-acento);
+  }
+}
+
+/* Apply to Buttons */
+.cta-button,
+.read-more,
+.town-card-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover,
+.read-more:hover,
+.town-card-link:hover {
+  animation: electric-pulse 1.5s infinite alternate;
+  transform: translateY(-3px) scale(1.02);
+  z-index: 10;
+}
+
+/* Mobile Menu Optimizations */
+@media (max-width: 768px) {
+  .header-controls {
+    gap: 15px;
+    /* More space between buttons */
+  }
+
+  .header-controls button {
+    width: 48px;
+    /* Larger touch target */
+    height: 48px;
+    font-size: 1.4rem;
+    /* Larger icons */
+    background: rgba(255, 255, 255, 0.9);
+    /* Better visibility */
+    backdrop-filter: blur(5px);
+  }
+
+  body.dark-mode .header-controls button {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  /* Theme Menu on Mobile */
+  .theme-menu {
+    width: 90vw;
+    left: 5vw;
+    right: auto;
+    top: 80px;
+    transform: translateY(-10px);
+  }
+
+  .theme-menu.active {
+    transform: translateY(0);
+  }
+
+  .theme-option {
+    padding: 12px 15px;
+    /* Larger touch area */
+    font-size: 1rem;
+  }
+}
