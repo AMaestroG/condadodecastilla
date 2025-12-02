@@ -2,211 +2,78 @@ document.addEventListener('DOMContentLoaded', function () {
     const root = window.siteRoot || '';
     console.log('Initializing layout with root:', root);
 
-    // Load Header
-    fetch(root + '_header.html')
-        .then(response => {
-            if (!response.ok) throw new Error('Header load failed');
-            return response.text();
-        })
-        .then(data => {
-            const headerPlaceholder = document.getElementById('header-placeholder');
-            if (headerPlaceholder) {
-                // Fix relative paths
+    // Helper to load HTML fragments
+    const loadFragment = async (url, elementId) => {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const html = await response.text();
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = html;
+
+                // Fix relative paths in the loaded fragment
                 const parser = new DOMParser();
-                const doc = parser.parseFromString(data, 'text/html');
+                const doc = parser.parseFromString(html, 'text/html');
+                // (Optional: logic to fix paths if needed, but usually siteRoot handles it)
 
-                // Fix links
-                doc.querySelectorAll('a, link').forEach(el => {
-                    const href = el.getAttribute('href');
-                    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('//')) {
-                        el.setAttribute('href', root + href);
-                    }
-                });
-
-                // Fix images and scripts
-                doc.querySelectorAll('img, script').forEach(el => {
-                    const src = el.getAttribute('src');
-                    if (src && !src.startsWith('http') && !src.startsWith('//')) {
-                        el.setAttribute('src', root + src);
-                    }
-                });
-
-                headerPlaceholder.innerHTML = doc.body.innerHTML;
-                console.log('Header loaded successfully');
-
-                // Initialize components with a slight delay to ensure DOM is ready
-                setTimeout(() => {
+                // Re-initialize scripts/components for the fragment
+                if (elementId === 'header-placeholder') {
                     initializeSidebarNavigation();
                     initializeThemeToggle();
                     initializeLanguageToggle();
                     initializeGoogleTranslate();
-                }, 50);
-            } else {
-                console.error('Header placeholder not found');
+                }
             }
-        })
-        .catch(error => console.error('Error loading header:', error));
-
-    // Load Footer
-    fetch(root + '_footer.html')
-        .then(response => {
-            if (!response.ok) throw new Error('Footer load failed');
-            return response.text();
-        })
-        .then(data => {
-            const footerPlaceholder = document.getElementById('footer-placeholder');
-            if (footerPlaceholder) {
-                // Fix relative paths
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(data, 'text/html');
-
-                // Fix links
-                doc.querySelectorAll('a, link').forEach(el => {
-                    const href = el.getAttribute('href');
-                    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('//')) {
-                        el.setAttribute('href', root + href);
-                    }
-                });
-
-                // Fix images and scripts
-                doc.querySelectorAll('img, script').forEach(el => {
-                    const src = el.getAttribute('src');
-                    if (src && !src.startsWith('http') && !src.startsWith('//')) {
-                        el.setAttribute('src', root + src);
-                    }
-                });
-
-                footerPlaceholder.innerHTML = doc.body.innerHTML;
-                console.log('Footer loaded successfully');
+        } catch (error) {
+            console.error(`Error loading ${url}:`, error);
+            if (window.location.protocol === 'file:') {
+                console.warn('NOTE: Fetching external HTML fragments (header/footer) often fails on "file://" protocol due to browser security (CORS). Please use a local server (e.g., VS Code Live Server) to view the full site experience.');
+                const el = document.getElementById(elementId);
+                if (el) el.innerHTML = `<div style="padding: 20px; text-align: center; background: #fff3cd; color: #856404; border: 1px solid #ffeeba;">⚠️ Component could not load on local file system. Please use a local server.</div>`;
             }
-        })
-        .catch(error => console.error('Error loading footer:', error));
+        }
+    };
 
-    // Initialize independent components
-    initializeCarousels();
-    initializeScrollButton();
-    initializeScrollReveal();
-    initializeCardHoverEffects();
+    // Load Header and Footer
+    const headerPath = `${root}fragments/header.html`; // Assuming fragments are in a 'fragments' folder or similar, but based on previous code it was _header.html
+    // Wait, previous code used root + '_header.html'. Let's stick to that to avoid breaking paths.
+    const headerUrl = `${root}_header.html`;
+    const footerUrl = `${root}_footer.html`;
 
-    // Project 2026: Core Experience
-    initializeSmoothScroll();
-    initializeScrollProgress();
-    initialize3DTilt();
+    Promise.all([
+        loadFragment(headerUrl, 'header-placeholder'),
+        loadFragment(footerUrl, 'footer-placeholder')
+    ]).then(() => {
+        // Initialize other components after DOM is ready
+        initializeScrollReveal();
+        initializeScrollButton();
+        initializeCarousels();
+
+        // Project 2026 Initializations
+        initializeSmoothScroll();
+        initializeScrollProgress();
+        initialize3DTilt();
+    });
 });
 
-// --- Project 2026: Core Experience Functions ---
+// --- Component Initializers ---
 
-// Smooth Scroll (Momentum-based)
-function initializeSmoothScroll() {
-    // Simple momentum scrolling implementation
-    const body = document.body;
-    const main = document.querySelector('main') || body;
-
-    let current = 0;
-    let target = 0;
-    let ease = 0.075;
-
-    // Only active on desktop for performance and UX
-    if (window.innerWidth > 768) {
-        // We'll use a native-friendly approach: just smooth behavior for anchors
-        document.documentElement.style.scrollBehavior = 'smooth';
-
-        // For the "heavy" momentum feel, we would need a full virtual scroller
-        // But for a "Best of 2026" native feel, we stick to CSS smooth + 
-        // custom parallax which gives the illusion of depth.
-
-        // Let's add the Parallax Zoom here as it ties to scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const heroBg = document.querySelector('.hero');
-            if (heroBg) {
-                // Parallax Zoom Effect
-                heroBg.style.backgroundSize = `${100 + (scrolled * 0.05)}%`;
-                heroBg.style.backgroundPosition = `center ${scrolled * 0.5}px`;
-            }
-        });
-    }
-}
-
-// Scroll Progress Indicator
-function initializeScrollProgress() {
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress-bar';
-    Object.assign(progressBar.style, {
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        height: '4px',
-        background: 'var(--condado-gold-gradient)',
-        zIndex: '10000',
-        width: '0%',
-        transition: 'width 0.1s ease-out'
-    });
-    document.body.appendChild(progressBar);
-
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + "%";
-    });
-}
-
-// 3D Tilt Effect for Cards
-function initialize3DTilt() {
-    const cards = document.querySelectorAll('.imperial-card, .chrono-card');
-
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
-            const rotateY = ((x - centerX) / centerX) * 5;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        });
-    });
-}
-
-// Sidebar Navigation
 function initializeSidebarNavigation() {
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
 
-    if (!sidebarToggle || !sidebar) {
-        console.warn('Sidebar elements not found');
-        return;
-    }
+    if (!sidebarToggle || !sidebar) return;
 
-    // Toggle click
     sidebarToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         sidebar.classList.toggle('sidebar-visible');
-
-        // Update icon
         const icon = sidebarToggle.querySelector('i');
-        if (sidebar.classList.contains('sidebar-visible')) {
-            if (icon) icon.className = 'fas fa-times';
-        } else {
-            if (icon) icon.className = 'fas fa-bars';
-        }
+        if (icon) icon.className = sidebar.classList.contains('sidebar-visible') ? 'fas fa-times' : 'fas fa-bars';
     });
 
-    // Close when clicking outside
     document.addEventListener('click', (e) => {
-        if (sidebar.classList.contains('sidebar-visible') &&
-            !sidebar.contains(e.target) &&
-            !sidebarToggle.contains(e.target)) {
-
+        if (sidebar.classList.contains('sidebar-visible') && !sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
             sidebar.classList.remove('sidebar-visible');
             const icon = sidebarToggle.querySelector('i');
             if (icon) icon.className = 'fas fa-bars';
@@ -214,19 +81,12 @@ function initializeSidebarNavigation() {
     });
 }
 
-// Theme Toggle
 function initializeThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
-
-    if (!themeToggle) {
-        console.warn('Theme toggle not found');
-        return;
-    }
+    if (!themeToggle) return;
 
     const icon = themeToggle.querySelector('i');
-
-    // Check saved preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
@@ -236,27 +96,17 @@ function initializeThemeToggle() {
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
-
-        if (isDark) {
-            if (icon) icon.className = 'fas fa-sun';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            if (icon) icon.className = 'fas fa-moon';
-            localStorage.setItem('theme', 'light');
-        }
+        if (icon) icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 }
 
-// Language Toggle
 function initializeLanguageToggle() {
     const langToggle = document.getElementById('lang-toggle');
     const langBar = document.getElementById('language-bar');
     const closeLangBar = document.getElementById('close-lang-bar');
 
-    if (!langToggle || !langBar) {
-        console.warn('Language elements not found');
-        return;
-    }
+    if (!langToggle || !langBar) return;
 
     langToggle.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -271,120 +121,132 @@ function initializeLanguageToggle() {
             langBar.classList.remove('active');
         });
     }
-
-    document.addEventListener('click', (e) => {
-        if (langBar.classList.contains('active') &&
-            !langBar.contains(e.target) &&
-            !langToggle.contains(e.target)) {
-            document.body.classList.remove('lang-open');
-            langBar.classList.remove('active');
-        }
-    });
 }
 
-// Google Translate
 function initializeGoogleTranslate() {
     if (document.querySelector('script[src*="translate.google.com"]')) return;
-
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
     document.head.appendChild(script);
 }
 
-function googleTranslateElementInit() {
+window.googleTranslateElementInit = function () {
+    if (window.location.protocol === 'file:') {
+        console.log('Google Translate disabled on file:// protocol to prevent CORS errors.');
+        return;
+    }
     new google.translate.TranslateElement({
         pageLanguage: 'es',
         includedLanguages: 'en,fr,de,it,pt,ca,eu,gl',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
     }, 'google_translate_element');
-}
+};
 
-// Carousels
 function initializeCarousels() {
     const carousels = document.querySelectorAll('.carousel-container');
-
     carousels.forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
         const nextBtn = carousel.querySelector('.carousel-button.next');
         const prevBtn = carousel.querySelector('.carousel-button.prev');
-
         if (!track || !nextBtn || !prevBtn) return;
 
         let index = 0;
-        const slides = track.children;
-
         const update = () => {
+            const slides = track.children;
+            if (slides.length === 0) return;
             const slideWidth = slides[0].getBoundingClientRect().width;
-            const gap = 20; // Matches CSS gap
+            const gap = 20;
             track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
-
-            // Simple boundary checks
             prevBtn.style.opacity = index === 0 ? '0.5' : '1';
             const maxIndex = slides.length - (window.innerWidth > 768 ? 3 : 1);
             nextBtn.style.opacity = index >= maxIndex ? '0.5' : '1';
         };
 
         nextBtn.addEventListener('click', () => {
+            const slides = track.children;
             const maxIndex = slides.length - (window.innerWidth > 768 ? 3 : 1);
-            if (index < maxIndex) {
-                index++;
-                update();
-            }
+            if (index < maxIndex) { index++; update(); }
         });
 
         prevBtn.addEventListener('click', () => {
-            if (index > 0) {
-                index--;
-                update();
-            }
+            if (index > 0) { index--; update(); }
         });
 
-        window.addEventListener('resize', () => {
-            index = 0;
-            update();
-        });
-
-        // Initial call to set state
-        update();
+        window.addEventListener('resize', () => { index = 0; update(); });
+        // Initial update with a small delay to ensure layout is ready
+        setTimeout(update, 100);
     });
 }
 
-// Scroll to Top
 function initializeScrollButton() {
     const btn = document.getElementById('scrollToTopBtn');
     if (!btn) return;
-
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            btn.style.display = 'flex';
-        } else {
-            btn.style.display = 'none';
-        }
+        btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
     });
-
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-// Scroll Reveal
 function initializeScrollReveal() {
     const elements = document.querySelectorAll('.section, .scroll-reveal');
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1 });
-
     elements.forEach(el => observer.observe(el));
 }
 
-// Card Hover Effects
-function initializeCardHoverEffects() {
-    // CSS handles most of this now, but we can keep mouse tracking if needed
-    // For now, relying on CSS :hover for better performance and simplicity
+// --- Project 2026 Functions ---
+
+function initializeSmoothScroll() {
+    if (window.innerWidth > 768) {
+        document.documentElement.style.scrollBehavior = 'smooth';
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroBg = document.querySelector('.hero');
+            if (heroBg) {
+                heroBg.style.backgroundSize = `${100 + (scrolled * 0.05)}%`;
+                heroBg.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+            }
+        });
+    }
+}
+
+function initializeScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress-bar';
+    Object.assign(progressBar.style, {
+        position: 'fixed', top: '0', left: '0', height: '4px',
+        background: 'var(--condado-gold-gradient)', zIndex: '10000',
+        width: '0%', transition: 'width 0.1s ease-out'
+    });
+    document.body.appendChild(progressBar);
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+    });
+}
+
+function initialize3DTilt() {
+    const cards = document.querySelectorAll('.imperial-card, .chrono-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -5;
+            const rotateY = ((x - centerX) / centerX) * 5;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    });
 }
