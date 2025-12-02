@@ -1,46 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trevino - Alfoz de Cerezo</title>
+    <title>Treviño - Alfoz de Cerasio y Lantarón</title>
     <link rel="icon" href="../../../assets/img/escudo.jpg" type="image/jpeg">
+    <meta name="description"
+        content="Historia de Treviño, enclave castellano en Álava. Fundación real y señorío en la Cuna de Castilla.">
+
+    <!-- Fonts & CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../../../css/estilos_condado.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../css/estilos_condado.css?v=2">
 </head>
+
 <body>
+    <!-- Navigation Header (Injected) -->
     <div id="header-placeholder"></div>
-    
-    <header class="page-header hero" style="background-image: linear-gradient(rgba(var(--color-primario-purpura-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('../../../assets/img/hero_alfoz_background.jpg');">
-        <div class="hero-content">
-            <h1>Trevino</h1>
-            <p>Integrante del histórico Alfoz de Cerezo y Lantarón</p>
+
+    <!-- Hero Section -->
+    <header class="hero parallax-hero"
+        style="background-image: linear-gradient(rgba(46, 8, 64, 0.7), rgba(26, 26, 26, 0.85)), url('../../../assets/img/hero_alfoz_background.jpg');">
+        <div class="hero-content scroll-reveal">
+            <h1 class="hero-title">Treviño</h1>
+            <h2 class="hero-subtitle">El Enclave Histórico</h2>
+            <p class="hero-text">Una isla de Castilla en el corazón de Álava.</p>
         </div>
     </header>
 
     <main>
         <section class="section">
             <div class="container imperial-frame">
-                <p>Bienvenido al archivo del pueblo de <strong>Trevino</strong>. Aquí encontrarás información histórica y cultural sobre esta localidad.</p>
-                <div class="alert-box" style="background-color: rgba(255, 215, 0, 0.1); border-left: 4px solid var(--condado-secundario); padding: 1em; margin: 1em 0;">
-                    <p><em>Esta sección está en construcción. Próximamente añadiremos más detalles.</em></p>
+                <h2 class="section-title">Historia y Legado</h2>
+
+                <div class="imperial-card">
+                    <h3>Fundación y Señorío</h3>
+                    <p>
+                        <strong>Treviño</strong> es un caso singular en la geografía castellana. Fundada oficialmente en
+                        1161 por el rey Sancho VI de Navarra, pasó definitivamente a la corona de Castilla en 1200 tras
+                        la conquista de Alfonso VIII. Desde entonces, su destino ha estado ligado a Burgos, a pesar de
+                        estar rodeado por tierras alavesas. En 1453, se convirtió en Condado bajo el linaje de los
+                        Manrique de Lara, consolidando su estatus señorial.
+                    </p>
+                    <p>
+                        Su conexión con el <strong>Alfoz de Cerezo</strong> es parte de la compleja red de
+                        jurisdicciones que se superponían en esta zona de frontera, donde los límites cambiaban al ritmo
+                        de las guerras y los pactos reales.
+                    </p>
                 </div>
-                <div class="town-navigation" style="display: flex; justify-content: space-between; align-items: center; margin-top: 2em; flex-wrap: wrap; gap: 1em;">
-                    <a href="../Tormantos/index.html" class="cta-button prev-town" title="Ir a Tormantos">← Tormantos</a>
-                    <a href="../../../alfoz/alfoz.html" class="cta-button">Volver al Alfoz</a>
-                    <a href="../Tuesta/index.html" class="cta-button next-town" title="Ir a Tuesta">Tuesta →</a>
+
+                <div class="imperial-card" style="margin-top: 2rem;">
+                    <h3>Cuna de Castilla: Identidad Resiliente</h3>
+                    <p>
+                        En Treviño, la <strong>Cuna de Castilla</strong> demuestra su capacidad de resistencia. A lo
+                        largo de los siglos, ha mantenido su identidad castellana frente a las presiones territoriales.
+                        Su patrimonio monumental, con la iglesia de San Pedro y el palacio de los Condes de Treviño,
+                        habla de un pasado esplendoroso donde el arte y el poder se daban la mano.
+                    </p>
+                    <p>
+                        La villa es un museo vivo de la historia medieval, con sus calles trazadas y sus edificios que
+                        narran la epopeya de una tierra que siempre se sintió parte del corazón de Castilla.
+                    </p>
+                </div>
+
+                <div class="imperial-card" style="margin-top: 2rem;">
+                    <h3>Patrimonio Monumental</h3>
+                    <p>
+                        Treviño atesora un conjunto histórico-artístico de primer orden. La talla gótica de la Virgen
+                        Blanca y la torre barroca son solo algunos ejemplos de la riqueza cultural que acumularon sus
+                        habitantes. Es un lugar donde la historia no es solo un recuerdo, sino una realidad palpable en
+                        cada piedra.
+                    </p>
+                    <p>
+                        Visitar Treviño es adentrarse en una paradoja geográfica que solo la historia de Castilla puede
+                        explicar.
+                    </p>
+                </div>
+
+                <div class="text-center-my" style="margin-top: 3rem;">
+                    <a href="../alfoz.html" class="cta-button">Volver al Alfoz</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer (Injected) -->
     <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
     <script>window.siteRoot = '../../../';</script>
     <script src="../../../js/layout.js"></script>
 </body>
+
 </html>
-
-
