@@ -16,10 +16,16 @@ foreach ($dir in $subdirs) {
         # But NOT if it's already ../assets/
         
         $content = $content -replace 'src="assets/', 'src="../assets/'
+        $content = $content -replace "url\('assets/", "url('../assets/"
+        $content = $content -replace 'href="assets/', 'href="../assets/'
         $content = $content -replace 'href="css/', 'href="../css/'
         $content = $content -replace 'href="js/', 'href="../js/'
+        $content = $content -replace 'src="js/', 'src="../js/'
         $content = $content -replace 'href="index.html"', 'href="../index.html"'
         $content = $content -replace 'href="favicon.ico"', 'href="../favicon.ico"'
+        
+        # Fix siteRoot
+        $content = $content -replace "window.siteRoot = '';", "window.siteRoot = '../';"
         
         # Fix links to other top-level folders that are now siblings
         # e.g. href="alfoz/..." -> href="../alfoz/..."
