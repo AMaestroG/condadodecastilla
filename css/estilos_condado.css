@@ -588,23 +588,25 @@ body.dark-mode .imperial-card {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-display: inline-block;
-padding: 15px 40px;
-background: transparent;
-color: var(--condado-primario);
-text-decoration: none;
-border-radius: 50px;
-font-weight: 900;
-font-family: var(--font-heading);
-border: 2px solid var(--condado-primario);
-transition: all 0.3s ease;
-text-transform: uppercase;
-letter-spacing: 2px;
-position: relative;
-overflow: hidden;
-z-index: 1;
-margin-top: 1rem;
-cursor: pointer;
+.cta-button,
+.read-more {
+  display: inline-block;
+  padding: 15px 40px;
+  background: transparent;
+  color: var(--condado-primario);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  border: 2px solid var(--condado-primario);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: 1rem;
+  cursor: pointer;
 }
 
 body.dark-mode .cta-button,
@@ -1408,6 +1410,7 @@ body.theme-libro-antiguo .imperial-card {
     right: 10px;
     gap: 8px;
   }
+
   .icon-raven {
     width: 40px;
     height: 40px;
@@ -1420,4 +1423,32 @@ body.theme-libro-antiguo .imperial-card {
   background-image: url('../assets/img/bg-alabaster.png');
   background-blend-mode: multiply;
   color: var(--condado-negro-carbon);
+}
+
+/* Menu Alabastro Style */
+.menu-alabastro .header-controls button {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--condado-secundario);
+  color: var(--condado-primario);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.menu-alabastro .header-controls button:hover {
+  background: var(--condado-primario);
+  color: #fff;
+}
+
+.menu-alabastro .sidebar {
+  background: rgba(240, 230, 210, 0.95);
+  /* Light Alabaster */
+  border-left: 3px solid var(--condado-secundario);
+}
+
+.menu-alabastro .nav-links a {
+  color: var(--condado-primario);
+}
+
+.menu-alabastro .nav-links a:hover {
+  background: rgba(46, 8, 64, 0.1);
+  color: var(--condado-rojo-sangre);
 }
