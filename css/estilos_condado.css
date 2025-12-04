@@ -1400,3 +1400,24 @@ body.theme-libro-antiguo .imperial-card {
     font-size: 1rem;
   }
 }
+
+/* Mobile Menu Fixes & Utilities */
+@media (max-width: 768px) {
+  .header-controls {
+    top: 10px;
+    right: 10px;
+    gap: 8px;
+  }
+  .icon-raven {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+.bg-alabastro {
+  background-color: var(--condado-blanco-alabastro);
+  background-image: url('../assets/img/bg-alabaster.png');
+  background-blend-mode: multiply;
+  color: var(--condado-negro-carbon);
+}
