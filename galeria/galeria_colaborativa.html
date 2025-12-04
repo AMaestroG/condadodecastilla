@@ -67,44 +67,115 @@
                             <p style="margin-top: 0.5rem; font-size: 0.9rem;">Paisaje Histórico</p>
                         </div>
                         <div class="imperial-card">
-                            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 4px;">
-                                <img src="../assets/img/vestigio_antiguo_1.jpg" alt="Vestigio Antiguo"
-                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                            </div>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Vestigios del Pasado</p>
-                        </div>
-                        <div class="imperial-card">
-                            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 4px;">
-                                <img src="../assets/img/vestigio_antiguo_2.jpg" alt="Detalle Arquitectónico"
-                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                            </div>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Detalle Arquitectónico</p>
-                        </div>
-                        <div class="imperial-card">
-                            <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 4px;">
-                                <img src="../assets/img/arcollana.jpg" alt="Arco de la Llana"
-                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                            </div>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Arco de la Llana</p>
-                        </div>
-                    </div>
-                </div>
+                            <!DOCTYPE html>
+                            <html lang="es">
 
-                <div class="alert-box"
-                    style="background-color: rgba(255, 215, 0, 0.1); border-left: 4px solid var(--condado-secundario); padding: 1em; margin: 2em 0;">
-                    <p><em>Esta sección está en construcción. Próximamente añadiremos más imágenes.</em></p>
-                </div>
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Galería Colaborativa - Condado de Castilla</title>
+                                <link rel="icon" href="../assets/img/escudo.jpg" type="image/jpeg">
 
-                <div style="text-align: center; margin-top: 2em;">
-                    <a href="../index.html" class="cta-button">Volver al Inicio</a>
-                </div>
-            </div>
-        </section>
-    </main>
+                                <link rel="preconnect" href="https://fonts.googleapis.com">
+                                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                                <link
+                                    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+                                    rel="stylesheet">
+                                <link rel="stylesheet"
+                                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <div id="footer-placeholder"></div>
-    <script>window.siteRoot = '../';</script>
-    <script src="../js/layout.js"></script>
-</body>
+                                <link rel="stylesheet" href="../css/estilos_condado.css">
 
-</html>
+                            </head>
+
+                            <body>
+
+                                <div id="header-placeholder"></div>
+
+                                <header class="page-header hero"
+                                    style="background-image: linear-gradient(rgba(var(--condado-primario-rgb), 0.7), rgba(var(--color-negro-contraste-rgb), 0.85)), url('../assets/img/hero_galeria.jpg');">
+                                    <div class="hero-content">
+                                        <h1>Galería Colaborativa</h1>
+                                        <p>Imágenes que cuentan historias. Comparte y descubre la belleza de nuestro
+                                            entorno.</p>
+                                    </div>
+                                </header>
+
+                                <main>
+                                    <section class="section">
+                                        <div class="container imperial-frame">
+                                            <h2 class="section-title">Nuestra Galería</h2>
+                                            <p style="text-align: center;">
+                                                Bienvenido a la galería colaborativa del Condado de Castilla. Aquí
+                                                puedes compartir y explorar
+                                                fotografías
+                                                de nuestro patrimonio histórico, paisajes y tradiciones.
+                                            </p>
+
+                                            <div class="imperial-grid"
+                                                style="display: grid; gap: 2rem; margin-top: 2rem;">
+                                                <div class="imperial-card">
+                                                    <h3
+                                                        style="color: var(--condado-secundario); border-bottom: 1px solid var(--condado-oro-viejo); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                                                        Imagen Destacada</h3>
+                                                    <div
+                                                        style="width: 100%; overflow: hidden; border-radius: 8px; border: 2px solid var(--condado-primario);">
+                                                        <img src="../assets/img/imagen_destacada_nueva.jpg"
+                                                            alt="Imagen destacada del Condado de Castilla"
+                                                            style="width: 100%; height: auto; display: block; transition: transform 0.5s ease;">
+                                                    </div>
+                                                    <p
+                                                        style="margin-top: 1rem; font-style: italic; color: var(--condado-negro-carbon);">
+                                                        Una vista impresionante de nuestra tierra.
+                                                    </p>
+                                                </div>
+
+                                                <!-- New Images Grid -->
+                                                <div
+                                                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                                                    <div class="imperial-card">
+                                                        <div
+                                                            style="width: 100%; height: 200px; overflow: hidden; border-radius: 4px;">
+                                                            <img src="../assets/img/paisaje_condado_1.jpg"
+                                                                alt="Paisaje del Condado"
+                                                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                                                        </div>
+                                                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Paisaje
+                                                            Histórico</p>
+                                                    </div>
+                                                    <div class="imperial-card">
+                                                        <div
+                                                            style="width: 100%; height: 200px; overflow: hidden; border-radius: 4px;">
+                                                            <img src="../assets/img/vestigio_antiguo_1.jpg"
+                                                                alt="Vestigio Antiguo"
+                                                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                                                        </div>
+                                                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Vestigios del
+                                                            Pasado</p>
+                                                    </div>
+                                                    <div class="imperial-card">
+                                                        <div
+                                                            style="width: 100%; height: 200px; overflow: hidden; border-radius: 4px;">
+                                                            <img src="../assets/img/arcollana.jpg"
+                                                                alt="Arco de la Llana"
+                                                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                                                        </div>
+                                                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Arco de la
+                                                            Llana</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div style="text-align: center; margin-top: 2em;">
+                                                <a href="../index.html" class="cta-button">Volver al Inicio</a>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </main>
+
+                                <div id="footer-placeholder"></div>
+                                <script>window.siteRoot = '../';</script>
+                                <script src="../js/layout.js"></script>
+                            </body>
+
+                            </html>
