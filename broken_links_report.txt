@@ -1,0 +1,46 @@
+﻿
+
+SourceFile   : C:\User
+               s\ablma
+               \Docume
+               nts\Cer
+               ezo\Web
+               \condad
+               odecast
+               illa\lu
+               gares\a
+               lfozcer
+               ezolant
+               aron\Ce
+               rezo_de
+               _Rio_Ti
+               ron\ind
+               ex.html
+Link         : ../../.
+               ./asset
+               s/img/I
+               glesia 
+               de la 
+               llana 
+               (2).jpg
+ResolvedPath : C:\User
+               s\ablma
+               \Docume
+               nts\Cer
+               ezo\Web
+               \condad
+               odecast
+               illa\as
+               sets\im
+               g\Igles
+               ia de 
+               la 
+               llana 
+               (2).jpg
+Reason       : File 
+               Not 
+               Found
+
+
+
+
